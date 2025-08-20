@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 4 - bruk template literals</title>
+</head>
+<body>
+    
+    <p id="maillink"></p>
+
+    <script>
+        const name = "Nikola";
+        const mail = "nikolamp@hiof.no";
+
+        const emailLink =`<a href="mailto:${mail}">Send mail til ${name}</a>`;
+
+        console.log(emailLink)
+
+        document.getElementById("maillink").innerHTML = emailLink
+    </script>
+
+</body>
+</html>
