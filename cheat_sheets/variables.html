@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables Cheat Sheet</title>
+</head>
+<body>
+    
+    <p id="navn"></p> 
+    <p id="alder"></p>
+
+    <p id="melding"></p>
+
+    <script>
+        //navn
+
+        //første variabel
+        const name = "Nikola"
+
+        //færste console utskrift
+        console.log(name)
+
+
+        //færste html utskrift
+        document.getElementById("navn").innerHTML = name
+
+
+        //alder
+
+        //fødselsår
+        const birthYear = 2004
+
+        //år
+        let year = 2025
+
+        //utregning av min alder basert på variablene birthYear og year
+        let age = year - birthYear
+
+        console.log(age)
+
+        document.getElementById("alder").innerHTML = age
+
+
+        document.getElementById("melding").innerHTML = "Hei, jeg heter " + name + ", og jeg er " + age + " år gammel."
+        
+    </script>
+</body>
+</html>
