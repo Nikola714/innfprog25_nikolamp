@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3</title>
+</head>
+<body>
+
+    <p id="utskrift"></p>
+
+    <script>
+        const barn1 = "gutt";
+        const barn2 = "gutt";
+        const barn3 = "jente";
+        
+
+
+        let antall_gutter = 0;
+        let antall_jenter = 0;
+
+
+        if (barn1 == "gutt"){
+            antall_gutter = antall_gutter += 1;
+        }
+        else{
+            antall_jenter = antall_jenter += 1;
+        }
+
+        if (barn2 == "gutt"){
+            antall_gutter = antall_gutter += 1;
+        }
+        else{
+            antall_jenter = antall_jenter += 1;
+        }
+
+        if (barn3 == "jente"){
+            antall_jenter = antall_jenter += 1;
+        }
+        else {
+            antall_gutter = antall_gutter +=1;
+        }
+
+
+        document.getElementById("utskrift").innerHTML = "Gutter: " + antall_gutter + ", Jenter: " + antall_jenter
+    </script>
+    
+</body>
+</html>
