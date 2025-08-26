@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terskelverdier for eksamen i webutvikling H2025</title>
+</head>
+<body>
+
+    <p id="beskjed"></p>
+
+    <script>
+        resultat = 0.66
+        let utskrift = ""
+
+        const e = 0.40
+        const d = 0.55
+        const c = 0.65
+        const b = 0.80
+        const a = 0.95
+
+        if (resultat < e){
+            utskrift = "Ikke bestått!"
+        }
+        else if (resultat < d){
+            utskrift = "Karakter: E"
+        }
+        else if(resultat < c){
+            utskrift = "Karakter: D"
+        }
+        else if(resultat < b){
+            utskrift = "Karakter: C"
+        }
+        else if(resultat < a){
+            utskrift = "Karakter: B"
+        }
+        else {
+            utskrift = "Karakter: A"
+        }
+
+        document.getElementById("beskjed").innerHTML = utskrift
+    </script>
+    
+</body>
+</html>
