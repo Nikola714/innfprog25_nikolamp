@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.spilt() - eksempel</title>
+</head>
+<body>
+    
+    <ol>
+        <li id ="shoppinglist"></li>
+    </ol>
+    <script>
+    const shoppingList =["Brød","Egg","Melk","Sjokolade"]
+
+  
+    //Splicing the array on row 2, not removing anything
+
+    shoppingList.splice(2,0,"Ost","Syltetøy")
+
+  
+    //Print rows as list elements
+
+
+  console.log(shoppingList)
+    document.getElementById("shoppinglist").innerHTML=shoppingList.join("</li><li>")
+
+    </script>
+</body>
+</html>
