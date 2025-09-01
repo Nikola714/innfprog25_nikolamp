@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays with object- Cheat Sheet</title>
+</head>
+<body>
+
+    <ul id="profiles"></ul>
+    
+    <script>
+        const lecturers = [
+            {
+                name: "Marius Akerbæk",
+                office: "D1-016",
+                email: "toremake@hio.no",
+                birthyear: 1983
+            },
+
+             {
+                name: "Daniela Blauhut",
+                office: "D1-015",
+                email: "danielb@hio.no",
+                birthyear: 1977
+            },
+
+             {
+                name: "Ann-Charlott Karlsen",
+                office: "D1-062",
+                email: "ackarlse@hio.no",
+                birthyear: 1992
+            },
+
+             {
+                name: "Ole Edvard Ørebæk",
+                office: "D1-061A",
+                email: "oledvo@hio.no",
+                birthyear: 1993
+            }, 
+            {
+                name: "Thor Andreas Holberg Murtnes-Hatlestad",
+                office: "Hjemmekontor",
+                email: "thoraho@hio.no",
+                birthyear: 1990
+            }
+        ]
+
+
+        //skrive ut usortert liste med alle navn og informajson om de
+        let profiles = document.getElementById("profiles")
+
+        // lecturers.map(lecturer => {
+        //     profiles.innerHTML += 
+        //     `<li>
+        //         <h3>${lecturer.name}</h3>
+        //         <span> Alder: ${2025 - lecturer.birthyear}</span>
+        //         <p>Kontor: ${lecturer.office}</p>
+        //         <a href="mailto: ${lecturer.email}">Skriv e-post til ${lecturer.name}</a>
+        //     </li>`
+        //     console.log(lecturer)
+        // })
+
+        // ctrl * til å kommentere flere linjer
+
+
+
+        //skrive ut de som er født før enn 1990 eller i 1990
+        lecturers.filter(lec => lec.birthyear >= 1990).map(lecturer => {
+            profiles.innerHTML += 
+            `<li>
+                <h3>${lecturer.name}</h3>
+                <span> Alder: ${2025 - lecturer.birthyear}</span>
+                <p>Kontor: ${lecturer.office}</p>
+                <a href="mailto: ${lecturer.email}">Skriv e-post til ${lecturer.name}</a>
+            </li>`
+        })
+    </script>
+
+</body>
+</html>
