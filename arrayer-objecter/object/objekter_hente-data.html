@@ -6,19 +6,26 @@
     <title>Hente ut data fra et object - eksempel</title>
 </head>
 <body>
-    
+    <p id="kursinfo"></p>
     <script>
         const teacher = {
             firstName: "Marius",
             lastName: "Akerbæk",
             birthYear: 19983,
             employeeID: 103,
-            course: ["ITF19019", "ITF10611", "itm30719"]
+            course: ["ITF19019", "ITF10611", "ITM30719"]
         }
 
-        console.log(teacher.employeeID)
+        //console.log(teacher.employeeID)
         //skrive ut data fra "employeeId"-nøkkel. Det vil si, skriver ut "103"
+
+        //skrive ut course verdi i konsollen og nettleseren:
+        console.log(teacher. course);
+        
+        document.getElementById("kursinfo").innerHTML = `Kurs navn er ${teacher.course[0]} , ${teacher.course[1]} , ${teacher.course[2]}`
     </script>
 
 </body>
 </html>
+
+

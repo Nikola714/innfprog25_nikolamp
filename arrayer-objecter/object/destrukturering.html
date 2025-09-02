@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destrukturering - eksempel</title>
+</head>
+<body>
+    <p id="foreleser"></p>
+    <script>
+        const teacher = {
+            firstName: "Marius",
+            lastName: "Akerbæk",
+            birthYear: 19983,
+            employeeID: 103,
+            course: ["ITF19019", "ITF10611", "ITM30719"]
+        }
+
+        //lage to nye variabler som tilhører nøkler i "teacher" objekt
+        const {firstName, lastName} = teacher
+        document.getElementById("foreleser").innerHTML = `${firstName} ${lastName}`
+    </script>
+
+</body>
+</html>
+
+
