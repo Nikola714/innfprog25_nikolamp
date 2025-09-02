@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flerdimensjonale arrayer - eksempel</title>
+</head>
+<body>
+    
+    <script>
+
+        //en arrayen med fem arrayer
+        const shoppingList = [
+            ["Melk", 2], //hele array er index 0
+            ["Egg", 12], //-""- -""- er index 1 osv...
+            ["Brød", 1],
+            ["Epler", 4],
+            ["Ost", 1]
+        ]
+
+        //skrive ut hele handleliste
+        console.log("Hele handleliste:")
+        console.log(shoppingList)
+
+
+        //skrive ut bare noen av handliste
+        console.log(`Hva må jeg kjøpe? : et ${shoppingList[4][0]}, fire ${shoppingList[3][0]} og tolv ${shoppingList[1][0]}`)
+    </script>
+
+</body>
+</html>

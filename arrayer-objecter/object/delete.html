@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slette nøkkel og verdi (delete) - eksempel</title>
+</head>
+<body>
+    <script>
+        const teacher = {
+            firstName: "Marius",
+            lastName: "Akerbæk",
+            birthYear: 19983,
+            employeeID: 103,
+            course: ["ITF19019", "ITF10611", "ITM30719"]
+        };
+
+        //Skrive ut 
+        console.log("Før slette lastName - nøkkel og verdi:");
+        console.log(teacher);
+
+
+        //slette last nøkel og verdi til "lastName"
+        delete teacher.lastName;
+        console.log("Slette lastName - nøkkel og verdi")
+        console.log(teacher);
+
+        //Sjekke om nøkkel eksisterer lenger
+        console.log("lastName eksesterer? :", "lastName" in teacher)
+        //Resultat: false fordi det er ikke lenger i objekt 
+    </script>
+
+</body>
+</html>
+
+
