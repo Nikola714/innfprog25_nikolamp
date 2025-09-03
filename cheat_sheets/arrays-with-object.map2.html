@@ -15,42 +15,70 @@
                 name: "Marius Akerbæk",
                 office: "D1-016",
                 email: "toremake@hio.no",
-                birthyear: 1983
+                birthyear: 1983,
+                course: ["Innføring i programmering", "Kommunikasjonsdesign", "UI Designprosjekter", "Utvikling av interaktive nettsteder"]
             },
 
              {
                 name: "Daniela Blauhut",
                 office: "D1-015",
                 email: "danielb@hio.no",
-                birthyear: 1977
+                birthyear: 1977,
+                course: ["Designmetoder", "UI Designprosjekt"]
             },
 
              {
                 name: "Ann-Charlott Karlsen",
                 office: "D1-062",
                 email: "ackarlse@hio.no",
-                birthyear: 1992
+                birthyear: 1992,
+                course: ["Webutvikling", "Utvikling av interaktive nettsteder"]
             },
 
              {
                 name: "Ole Edvard Ørebæk",
                 office: "D1-061A",
                 email: "oledvo@hio.no",
-                birthyear: 1993
+                birthyear: 1993,
+                course: ["Innføring i datasikkerhet"]
             }, 
             {
                 name: "Thor Andreas Holberg Murtnes-Hatlestad",
                 office: "Hjemmekontor",
                 email: "thoraho@hio.no",
-                birthyear: 1990
+                birthyear: 1990,
+                course: ["Innføring i programmering"]
             }
         ]
+
+        console.log(lecturers)
 
 
         //skrive ut usortert liste med alle navn og informajson om de
         let profiles = document.getElementById("profiles")
 
-        // lecturers.map(lecturer => {
+        lecturers.map(lecturer => {
+            profiles.innerHTML += 
+            `<li>
+                <h3>${lecturer.name}</h3>
+                <span> Alder: ${2025 - lecturer.birthyear}</span>
+                <p>Kontor: ${lecturer.office}</p>
+                <a href="mailto: ${lecturer.email}">Skriv e-post til ${lecturer.name}</a>
+                <ul>
+                    ${lecturer.course.map(course => {
+                        return `<li>${course}</li>`
+                    }).join("")}
+                </ul>
+            </li>`
+            console.log(lecturer)
+        })
+
+        // ctrl * til å kommentere flere linjer
+
+
+
+        //skrive ut de som er født før enn 1990 eller i 1990
+        // lecturers.filter(lec => lec.birthyear >= 1990).map(lecturer => {
         //     profiles.innerHTML += 
         //     `<li>
         //         <h3>${lecturer.name}</h3>
@@ -58,23 +86,7 @@
         //         <p>Kontor: ${lecturer.office}</p>
         //         <a href="mailto: ${lecturer.email}">Skriv e-post til ${lecturer.name}</a>
         //     </li>`
-        //     console.log(lecturer)
         // })
-
-        // ctrl * til å kommentere flere linjer
-
-
-
-        //skrive ut de som er født før enn 1990 eller i 1990
-        lecturers.filter(lec => lec.birthyear >= 1990).map(lecturer => {
-            profiles.innerHTML += 
-            `<li>
-                <h3>${lecturer.name}</h3>
-                <span> Alder: ${2025 - lecturer.birthyear}</span>
-                <p>Kontor: ${lecturer.office}</p>
-                <a href="mailto: ${lecturer.email}">Skriv e-post til ${lecturer.name}</a>
-            </li>`
-        })
     </script>
 
 </body>
