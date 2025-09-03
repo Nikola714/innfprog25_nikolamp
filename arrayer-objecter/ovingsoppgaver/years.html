@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 4 - Årstall</title>
+</head>
+<body>
+
+    <ul id="events"></ul>
+
+    <script>
+        const years = [1066, 1564, 1455, 1346, 1215]
+
+        years.sort(function (a,b) {return b-a}) //fra høyeste verdi til minste verdi
+
+        let eventHTML = ""
+        
+        years.map(y => {
+            eventHTML += `
+            <li>${y}</li>`
+        })
+
+        console.log(years)
+
+        document.getElementById("events").innerHTML = eventHTML
+    </script>
+    
+</body>
+</html>

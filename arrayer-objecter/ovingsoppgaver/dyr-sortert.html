@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3 - Legg til og tell opp dyr</title>
+</head>
+<body>
+
+    <p id="antall-dyr"></p>
+
+    <script>
+        const dyr = ["Kat", "Hund", "Skilpadde", "Hest", "Pinnsvin", "Påfugl", "Blåhval", "Slange", "Frosk", "Pikachu"]
+
+        dyr.push("Rotte", "Ekorn")
+
+        dyr.sort()
+
+        const antallDyr = `${dyr.length} dyr i denne listen. ${dyr.join(",")}`
+
+        console.log(dyr)
+        console.log(antallDyr)
+        document.getElementById("antall-dyr").innerHTML = antallDyr
+
+    </script>
+</body>
+</html>
