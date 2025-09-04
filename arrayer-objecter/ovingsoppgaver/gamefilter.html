@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 6: Filter spill-titler
+</title>
+</head>
+<body>
+
+    <h1>iOS games</h1>
+    <ul id="filter"></ul>
+
+    <script>
+        const games = [
+            {
+                title: "Angry Birds",
+                platforms: ["iOS", "Android"]
+            },
+            {
+                title:  "Nongram",
+                platforms: ["Android"]
+            },
+            {
+                title:  "Plants vs Zombies",
+                platforms: ["iOS", "Android", "Windows", "MacOS"]
+            },
+            {
+                title:  "Punball",
+                platforms: ["Windows", "Android"]
+            },
+            {
+                title:  "Planet Zoo",
+                platforms: ["Windows", "MacOS"]
+            },
+            {
+                title:  "Woordle",
+                platforms: ["iOS", "MacOS"]
+            }
+        ]
+
+        //bruke filer til å definere hva vil jeg hente ut 
+        //.includes() - til å definere hva må inneholde det jeg vil hente ut,
+        //dvs. jeg vil hente data om hvilken spill funker for iOS
+        const result = games.filter((game) => game.platforms.includes("iOS"))
+        console.log(result)
+
+        //bruker .map() til å hente ut hele ny array som kalles "result", dvs. skrive ut alle spill som funker for iOS 
+        result.map(
+            (e) => {document.getElementById("filter").innerHTML += `<li>${e.title}</li>`  }
+        )
+    </script>
+</body>
+</html>
