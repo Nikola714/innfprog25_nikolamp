@@ -13,6 +13,7 @@
 
         //for-løkker hvor bestemmer jeg at starttall er 10, slutttall er 0, så dvs. at teller må synke (resultat: tall fra 10 til 0)
         for(let teller = 10; teller >= 0; teller--){
+            //sjekker om talleren har nådd 0 ved å bruke betinget logikk i for-løkken
             if(teller === 0){
                 htmlString += `Telleren har vedrdi 0`
              }else{
@@ -25,9 +26,6 @@
             }
             
              document.getElementById("nedtelling").innerHTML = htmlString
-
-
-        //Sjekk om talleren har nådd 0 ved å bruke betinget logikk i for-løkken
        
 
     </script>
