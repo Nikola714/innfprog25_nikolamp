@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 1: Nedtelling</title>
+</head>
+<body>
+    <ul id="nedtelling"></ul>
+
+    <script>
+        let htmlString = ""
+
+        //for-løkker hvor bestemmer jeg at starttall er 10, slutttall er 0, så dvs. at teller må synke (resultat: tall fra 10 til 0)
+        for(let teller = 10; teller >= 0; teller--){
+            //sjekker om talleren har nådd 0 ved å bruke betinget logikk i for-løkken
+            if(teller === 0){
+                htmlString += `Telleren har vedrdi 0`
+             }else{
+                htmlString +=`<li> ${teller}</li>`
+
+             }
+            console.log('test') //teste om kode funker
+            console.log(htmlString)
+             
+            }
+            
+             document.getElementById("nedtelling").innerHTML = htmlString
+       
+
+    </script>
+</body>
+</html>
