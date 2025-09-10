@@ -40,22 +40,22 @@
                     <tr>
                         <td><img src="icons/variable.svg" alt="" /></td>
                         <td>Variabler</td>
-                        <td>0</td>
+                        <td id="variabler-antall">0</td>
                     </tr>
                     <tr>
                         <td><img src="icons/array.svg" alt="" /></td>
                         <td>Arrayer</td>
-                        <td>1</span></td>
+                        <td id="arrayer-antall">1</span></td>
                     </tr>
                     <tr>
                         <td><img src="icons/loop.svg" alt="" /></td>
                         <td>Løkker</td>
-                        <td>2</td>
+                        <td id="loops-antall">2</td>
                     </tr>
                     <tr>
                         <td><img src="icons/function.svg" alt="" /></td>
                         <td>Funksjoner</td>
-                        <td>1</td>
+                        <td id="funksjoner-antall">1</td>
                     </tr>
                 </table>
             </div>
@@ -74,17 +74,75 @@
         </section>
     </main>
     <script>
+
+
+
         //PREPARE GAME CONFIG AND VARIABLES
-        //TODO: config
-       
-        //TODO: notebook
+        //TODO: config: 1. Gjør klar spillkonfigurasjon
+        const  gameConfig = {
+            player: "", 
+            energy: 5,
+            points: 10,
+            duration: 138
+        }
+
+
         
 
-        //TODO: print playerinfo to HTML
+       
+        //TODO: notebook: 2. Gjør klar for utskrift
+        document.getElementById("playerName").innerHTML = `${gameConfig.player}`
+        document.getElementById("energy").innerHTML = `${gameConfig.energy}`
+        document.getElementById("points").innerHTML = `${gameConfig.points}`
+        document.getElementById("duration").innerHTML = `${gameConfig.duration}`
         
-        //TODO: print notebook info to HTML
+
+
+
+
+        //TODO: print playerinfo to HTML: 3. Forbered notatblokken
+        let notebook = {
+            variables: 3,
+            arrays: 2,
+            loops: 4,
+            functions: 7
+        }
+        
+        //TODO: print notebook info to HTML: 4. Skrive ut verdier til notatblokken
+        document.getElementById("variabler-antall").innerHTML = `${notebook.variables}`
+        document.getElementById("arrayer-antall").innerHTML = `${notebook.arrays}`
+        document.getElementById("loops-antall").innerHTML = `${notebook.loops}`
+        document.getElementById("funksjoner-antall").innerHTML = `${notebook.functions}`
+
+
+
+
+
+
+        //TODO: test: 5. Sjekk at det finnes spillernavn
+
+        //skrive ut i konsolen
+        // if(gameConfig.player === ""){
+        //     console.log("Waiting for player...")
+        // }else{
+        //     console.log(gameConfig.player)
+        // }
+
+
+        //skrive ut i nettside 
+        if(gameConfig.player === ""){ //hvis objekt "player" som ligger i gameeConfig er tomt kommer utskrift "Waiting for player..."
+            document.getElementById("playerName").innerHTML = "Waiting for player..."
+        }else{
+            document.getElementById("playerName").innerHTML = `${gameConfig.player}` //sjekker og skriver ut den navn som ble definert ved brukeren, altså i linje 83 i objekt gameeConfig.player
+        }
+
+
+
+
+
 
         //(BONUS) TODO: function for all prints
+
         
     </script>
 </body>
