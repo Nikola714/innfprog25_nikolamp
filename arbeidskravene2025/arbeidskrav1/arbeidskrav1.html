@@ -21,11 +21,11 @@
         <section id="employee_list">
             <article class="card">
                 <img src="avatar.png" alt="Navn Navnesen" />
-                <p>Navn Navnesen<br />navn@email.com</p>
+                <p>Navn Navnesen <br>navn@email.com</br></p> <!--br-taggen manglet og var på dårlig sted: </br> var isteden for <br> -->
             </article>
             <article class="card">
                 <img src="avatar.png" alt="Navn Navnesen" />
-                <p>Navn Navnesen<br />navn@email.com</p>
+                <p>Navn Navnesen<br>navn@email.com</br></p> <!--<br/>-taggen eksisterer ikke, jeg bestemte å gjøre det samme som jeg har gjort i linje 24-->
             </article>
         </section>
     </main>
@@ -35,7 +35,8 @@
         </p>
     </footer>
 
-    <scripttt>
+    <script> //scripttt isteden for script-taggen derfor funket ikke det som det skulle å alle koder fra skrivt kom ut på nettside som tekst
+
         //Variabel with company name
         const company = "Programmeriet"
 
@@ -47,9 +48,9 @@
         ]
 
         //Secret keys to access url and images
-        let images_folder = "img
+        let images_folder = "img" //manglet slutt tegn fra fugler
         let secret_key = 0
-        let ak_key
+        let ak_key = ""
         
         //Turn on or off safeguard to allow system to run
         const safeguard = false
@@ -59,21 +60,22 @@
             ak_key = secret_key + 1
         }
         const safe_images_folder = images_folder += ak_key
-        console.logg("Image folder: " + safe_images_folder)
+        console.log("Image folder: " + safe_images_folder) //logg isteden for log
 
         let HTML_employees = ""
 
         //Control of safeguard to print employee list
         if(safeguard === true) {
             employees.map((e) => HTML_employees += `<article class="card">
-                    <img src="${safe_images_folder}/${e.image}.png" alt="${e.name}" />
+                    <img src="${safe_images_folder}/${e.image.png}.png" alt="${e.name}" />
                     <p><strong>${e.name}</strong></p>
                     <p>${e.position} | Kontor: ${e.office}</p>
                     <p>${e.email}</p>
                 </article>`)
 
-                document.getElementbyId("employee_list").innerHTML = HTML_employeeees
-        }
+                document.getElementById("employee_list").innerHTML = HTML_employees //HTML_employeeees  isteden for HTML_employees og by istedenfor ById
+
+            }
 
         //System prints
         document.getElementById("companyname").innerHTML = company
