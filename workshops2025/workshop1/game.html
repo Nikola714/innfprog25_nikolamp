@@ -90,7 +90,7 @@
         
 
        
-        //TODO: notebook: 2. Gjør klar for utskrift
+        //TODO: notebook: 2. Gjør klar for utskrift verdi
         document.getElementById("playerName").innerHTML = `${gameConfig.player}`
         document.getElementById("energy").innerHTML = `${gameConfig.energy}`
         document.getElementById("points").innerHTML = `${gameConfig.points}`
@@ -142,7 +142,41 @@
 
 
         //(BONUS) TODO: function for all prints
+        function updateStaticUI(){ 
+            
+            //kopierer jeg kode som jeg vil at skal kjøres fra over:
 
+            let playerNameHTML = document.getElementById("playerName") = playerName
+            
+            if(gameConfig.player === ""){ //hvis objekt "player" som ligger i gameeConfig er tomt kommer utskrift "Waiting for player..."
+                document.getElementById("playerName").innerHTML = "Waiting for player..."
+                //lege en løker til
+                for (key in gameConfig){
+                    key === playerName ? playerName : gameConfig[key] = 0 //hvis vi har navn verdi så har vi også resten av verdi, hvis den er tomt så ale verdi er 0 (for header)
+                }
+
+                for (key in notebook){
+                    notebook[key] = 0
+                }
+             }else{
+                document.getElementById("playerName").innerHTML = `${gameConfig.player}` //sjekker og skriver ut den navn som ble definert ved brukeren, altså i linje 83 i objekt gameeConfig.player
+            }
+
+
+
+            document.getElementById("playerName").innerHTML = `${gameConfig.player}`
+            document.getElementById("energy").innerHTML = `${gameConfig.energy}`
+            document.getElementById("points").innerHTML = `${gameConfig.points}`
+            document.getElementById("duration").innerHTML = `${gameConfig.duration}`
+
+
+            document.getElementById("variabler-antall").innerHTML = `${notebook.variables}`
+            document.getElementById("arrayer-antall").innerHTML = `${notebook.arrays}`
+            document.getElementById("loops-antall").innerHTML = `${notebook.loops}`
+            document.getElementById("funksjoner-antall").innerHTML = `${notebook.functions}`
+        }
+
+        updateStaticUI()
         
     </script>
 </body>
