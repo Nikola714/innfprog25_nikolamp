@@ -53,7 +53,7 @@
         let ak_key = ""
         
         //Turn on or off safeguard to allow system to run
-        const safeguard = false
+        const safeguard = true //true istedenfor false til å kjøre kode
         
         //Control of safeguard to create image folder name
         if(safeguard === true) {
@@ -67,7 +67,7 @@
         //Control of safeguard to print employee list
         if(safeguard === true) {
             employees.map((e) => HTML_employees += `<article class="card">
-                    <img src="${safe_images_folder}/${e.image.png}.png" alt="${e.name}" />
+                    <img src="${safe_images_folder}/${e.image}.png" alt="${e.name}" /> 
                     <p><strong>${e.name}</strong></p>
                     <p>${e.position} | Kontor: ${e.office}</p>
                     <p>${e.email}</p>
