@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funksjoner | Øvingsoppgave 3 - parametere med standard verdi</title>
+</head>
+<body>
+    <p id="name"></p>
+    <p id="age"></p>
+    <p id="mail"></p>
+
+    <script>
+        function print(name = "Ikke oppgitt", birthyear = "Ikke oppgitt", email = "Ikke oppgitt"){
+            document.getElementById("name").innerHTML = name
+            document.getElementById("age").innerHTML = birthyear
+            document.getElementById("mail").innerHTML = email
+        }
+
+        if(birthyear === "Ikke oppgitt"){
+            document.getElementById("age").innerHTML = birthyear
+        }else{
+            const age = 2025 - 2004
+            document.getElementById("age").innerHTML = age
+    
+        }
+
+        print()
+    </script>
+</body>
+</html>
