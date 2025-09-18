@@ -13,19 +13,18 @@
     <script>
         function print(name = "Ikke oppgitt", birthyear = "Ikke oppgitt", email = "Ikke oppgitt"){
             document.getElementById("name").innerHTML = name
-            document.getElementById("age").innerHTML = birthyear
             document.getElementById("mail").innerHTML = email
-        }
-
+        
         if(birthyear === "Ikke oppgitt"){
             document.getElementById("age").innerHTML = birthyear
         }else{
-            const age = 2025 - 2004
+            const birthyearNumber = Number(birthyear)
+            const age = 2025 - birthyearNumber
             document.getElementById("age").innerHTML = age
-    
+        }
         }
 
-        print()
+        print("Nikola", 2004, "nikolamp@hiof.no")
     </script>
 </body>
 </html>
