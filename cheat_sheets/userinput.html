@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brukerinput</title>
+</head>
+<body>
+    <!--Knapp med HTML-attributt - metode 1-->
+    <button onClick="printMessage()">Try me</button>
+
+    <!--Knapp med EventListener med metode 2-->
+    <button id="printEventMessage">Trigger event</button>
+
+    <!--Skjema-->
+
+        <label for="name">
+            Name:
+            <input type="text" id="name">
+        </label>
+
+        <button id="submitform">Submit</button>
+
+    
+    <script>
+        //Første knappen med første metode
+        function printMessage(){
+            const year = new Date().getFullYear()
+            console.log("Hei verden, året er " + year)
+        }
+
+
+        //Knapp med EventListener (knappen 2 med andre metode)
+        function printEventMessage(){
+            console.log("Hei verden, igjen")
+        }
+
+        //variabel til å skrive ut function
+        const eventBtn = document.getElementById("printEventMessage")
+        
+        //funker som onclick som ble brukt for første button altså første funksjon
+        //når man klikker på knappen så kommer funkjon, funksjon er skrevet ut med variabel "eventBtn"
+        eventBtn.addEventListener("click", () => {
+            printEventMessage()
+        })
+
+
+        
+
+        //Ta imot breukerinput fra skjemafelt
+        function getUserInput(){
+            let getUsername = document.getElementById("name")
+            //console.log(getUsername.value)
+
+            userArray.push(getUsername.value) //array push
+            console.log(userArray)  //array skrive ut i konsole
+
+            getUsername.value=""
+        }
+        const userArray = [] //array
+
+
+        const submitform = document.getElementById("submitform")
+
+        //hva som skal skje: når man klikker
+        submitform.addEventListener("click", () => {
+            //kalle funksjon
+            getUserInput()
+        })
+    </script>
+
+</body>
+</html>
