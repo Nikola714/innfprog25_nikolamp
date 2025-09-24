@@ -44,14 +44,14 @@
             }else if(year < currentYear){ //hvis det stemmer
                 //og dette
                 if(age < 0){
-                    text = `I ${year} er det ${Math.abs(age)} år til du blri født i ${birthyear}` //Math.abs = absolutt tall dvs. positiv tall
+                    text = `I ${year} er det ${Math.abs(age)} år til du blri født i ${birthyear}` //Math.abs = viser tall som absolutt tall dvs. positiv tall
                     console.log(text)
                 } //hcis den første stemmer men ikke andre
                 else {
                     text = `I ${year} var du ${age} år gammel`
                 }
 
-            } else { //hvis første if testen stemmet ikke
+            } else { //hvis første if testen stemmet ikkeh
                 text = `I år er du ${age} år gammel`
             }
             document.getElementById("agesentence").innerHTML = text
