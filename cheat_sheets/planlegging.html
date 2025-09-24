@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planlegging</title>
+</head>
+<body>
+    
+    <section>
+        <h2>Logg inn</h2>
+        <label for="email">
+            E-post:
+            <input type="text" id="email">
+        </label>
+
+        <label for="password">
+            Passord:
+            <input type="text" id="password">
+        </label>
+
+        <button id="loginbtn">Logg inn</button>
+        <a href="#">Gletm passord?</a>
+    </section>
+
+    <script>
+
+        const users = [
+            {
+                email: "nukolamp@hiof.no",
+                password: "drossap"
+            }
+        ]
+        //LOGIN
+            //ta imot input fra bruker
+                //e-post verdi
+                    //const eMail = document.getElementById("email").value
+                //passord verdi
+                    //const password = document.getElementById("password").value
+
+        //BUTTON
+        function verifyUser(){
+            const eMail = document.getElementById("email").value
+            const password = document.getElementById("password").value
+            //sende informasjon og sjekke etter bruker 
+                //filter
+                const filteredUser = users.filter(user => user.email === eMail && user.password === password)
+                //if test
+                    //hvis filteredUser [0] er tom skal noe skje
+                        if(!filteredUser[0]){
+                            console.log("Feil e-post eller passord")
+                    //hvis ikke, skal skje noe annet
+                        }else {
+                            console.log("Logget inn med " + eMail)
+                        }
+        }
+
+        //Lagre knapp i variabel
+        const loginBtn = document.getElementById("loginbtn")
+
+        //Lytte etter klikk
+        loginBtn.addEventListener("click", () => {
+            verifyUser()
+        })
+        //LINKEN
+            //sende bruker til skjema for glemt passord
+    </script>
+</body>
+</html>
