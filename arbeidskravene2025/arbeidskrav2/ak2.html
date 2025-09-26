@@ -25,11 +25,28 @@
         let random_color_code = "#"
         
         //Din kode for å løse problem 1 her.
+        function printHEX(){
+            document.getElementById("random_color").innerHTML = `${random_color_code}`+ Math.random(hexadecimal_characters_array) //refresjer side og får ny verdi hver gang for HEX farge | for verdi 0.(forskjellig tall verd men ikke noe bokstav)
+        }
+        printHEX()
+
+
 
         //PROBLEM 2
         const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
 
         //Din kode for å løse problem 2 her.
+        function Arraywords(){                  
+            let print1 = document.getElementById("betingelse_sjekk") //lage en variabel til å printe ut noe på nettside
+
+            if(programming_words.includes("betingelse")){ //if testen
+                innerHTML =  ("Ja")
+            }else{
+                innerHTML =("Nei")
+            }
+        }
+        Arraywords(); //kalle funskjon
+
 
         //PROBLEM 3
         const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17]
