@@ -21,14 +21,27 @@
     <script>
         //PROBLEM 1
         const hexadecimal_characters = "ABCDEF1234567890"
-        const hexadecimal_characters_array = Array.from(hexadecimal_characters)
+        const hexadecimal_characters_array = Array.from(hexadecimal_characters) //Array.from() = lager array av ABCDEF1234567890 så de skriver seg ut med koma 
         let random_color_code = "#"
         
         //Din kode for å løse problem 1 her.
-        function printHEX(){
-            document.getElementById("random_color").innerHTML = `${random_color_code}`+ Math.random(hexadecimal_characters_array) //refresjer side og får ny verdi hver gang for HEX farge | for verdi 0.(forskjellig tall verd men ikke noe bokstav)
+
+        //To do: Sjekk hva gjør kode over
+        // console.log(hexadecimal_characters_array)
+        // document.getElementById("random_color").innerHTML = hexadecimal_characters_array
+
+        //To do: lag funksjon som returnerer og skriver ut en tilfeldig laget hexadesimal fargekode bestått av seks tegn: A-F og 0-9 med hashtag foran
+        function printHeX(){
+            for (let tall = 0; tall <= 5; tall++){ //til å få seks tegner fra og med 0 til og med 5 gir oss 6 tegn
+                const tilfeldigVerdi = Math.floor(Math.random() * hexadecimal_characters_array.length)
+                document.getElementById("random_color").innerHTML = random_color_code +=  hexadecimal_characters_array[tilfeldigVerdi] 
+            }
         }
-        printHEX()
+        printHeX()
+
+        
+
+
 
 
 
