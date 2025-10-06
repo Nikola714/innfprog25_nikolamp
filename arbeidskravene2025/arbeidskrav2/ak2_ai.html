@@ -27,6 +27,19 @@
         const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
 
         //AI-kode for å løse problem 2 her.
+                function finnesOrd(ord) {
+            if (programming_words.includes(ord)) {
+                return "Ja";
+            } else {
+                return "Nei";
+            }
+        }
+        document.getElementById("betingelse_sjekk").textContent = finnesOrd("betingelse");
+        document.getElementById("algoritme_sjekk").textContent = finnesOrd("algoritme");
+        document.getElementById("problemlosning_sjekk").textContent = finnesOrd("problemløsning");
+
+
+
 
         //PROBLEM 3
         const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17]
