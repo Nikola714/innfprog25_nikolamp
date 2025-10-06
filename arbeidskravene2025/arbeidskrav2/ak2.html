@@ -49,17 +49,30 @@
         const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
 
         //Din kode for å løse problem 2 her.
-        function Arraywords(){                  
-            let print1 = document.getElementById("betingelse_sjekk") //lage en variabel til å printe ut noe på nettside
 
-            if(programming_words.includes("betingelse")){ //if testen
-                print1.innerHTML =  ("Ja")
-            }else{
-                print1.innerHTML =("Nei")
-            }
+            //Min eget versjon, ikke helt riktig fordi her jeg laget en function som kan sjekke en ord, men jeg vet jeg må sjekke tre ord samtidig
+
+            // function Arraywords(){                  
+            //     let print1 = document.getElementById("betingelse_sjekk") //lage en variabel til å printe ut noe på nettside
+
+            //     if(programming_words.includes("betingelse")){ //if testen
+            //         print1.innerHTML =  ("Ja")
+            //     }else{
+            //         print1.innerHTML =("Nei")
+            //     }
+            // }
+            // Arraywords(); //kalle funskjon
+
+        //Kode inspirert fra AI til å sjekke om finnes flere ord i array
+        function Arraywords(ord){
+            if(programming_words.includes(ord)){
+                return "Ja"
+            }else
+            return "Nei"
         }
-        Arraywords(); //kalle funskjon
-        
+        document.getElementById("betingelse_sjekk").innerHTML = Arraywords("betingelse")
+        document.getElementById("algoritme_sjekk").innerHTML = Arraywords("algoritme")
+        document.getElementById("problemlosning_sjekk").innerHTML = Arraywords("problemløsning")
 
 
         //PROBLEM 3
