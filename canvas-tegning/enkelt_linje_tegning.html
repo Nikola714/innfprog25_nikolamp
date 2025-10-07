@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tegning</title>
+</head>
+<body>
+    <canvas id="drawing-area"></canvas> <!--id til å referer og printe ut på nettside-->
+    
+    <script>
+        const canvas = document.getElementById("drawing-area") //printe på nettside
+
+        canvas.width = 800 //definere bredde
+        canvas.height = 600 //definere høyde
+
+        const ctx = canvas.getContext("2d") //definere at vi lager 2d grafikk
+        ctx.moveTo(0,0) //linje starter fra venstre side øverst
+        ctx.lineTo(300,300) //definerer hvor linje skal avsluttes, siden <canvas> har 600px i høyden så den linje vil avsluttes i midten av tilgendlig plass
+        ctx.stroke() //lage en linje
+
+    </script>
+</body>
+</html>
