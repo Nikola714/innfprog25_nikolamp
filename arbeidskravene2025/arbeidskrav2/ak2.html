@@ -31,13 +31,7 @@
         // document.getElementById("random_color").innerHTML = hexadecimal_characters_array
 
         //To do: lag funksjon som returnerer og skriver ut en tilfeldig laget hexadesimal fargekode bestått av seks tegn: A-F og 0-9 med hashtag foran
-        function printHeX(){
-            for (let tall = 0; tall <= 5; tall++){ //til å få seks tegner fra og med 0 til og med 5 gir oss 6 tegn
-                const tilfeldigVerdi = Math.floor(Math.random() * hexadecimal_characters_array.length)
-                document.getElementById("random_color").innerHTML = random_color_code +=  hexadecimal_characters_array[tilfeldigVerdi] 
-            }
-        }
-        printHeX()
+       
 
         
 
@@ -52,28 +46,24 @@
 
             //Min eget versjon, ikke helt riktig fordi her jeg laget en function som kan sjekke en ord, men jeg vet jeg må sjekke tre ord samtidig
 
-            // function Arraywords(){                  
-            //     let print1 = document.getElementById("betingelse_sjekk") //lage en variabel til å printe ut noe på nettside
+            function Arraywords(ord){                  
+                let print1 = document.getElementById(`${ord.replace("ø", "o")}_sjekk`) //lage en variabel til å printe ut noe på nettside
 
-            //     if(programming_words.includes("betingelse")){ //if testen
-            //         print1.innerHTML =  ("Ja")
-            //     }else{
-            //         print1.innerHTML =("Nei")
-            //     }
-            // }
-            // Arraywords(); //kalle funskjon
+                if(programming_words.includes(ord)){ //if testen
+                    print1.innerHTML =  ("Ja")
+                    console.log(`Ja, inneholder ordet ${ord}`)
+                }else{
+                    print1.innerHTML =("Nei")
+                    console.log(`Nei, inneholder ikke ordet ${ord}`)
+                }
+            }
 
-        //Kode inspirert fra AI til å sjekke om finnes flere ord i array
-        function Arraywords(ord){
-            if(programming_words.includes(ord)){
-                return "Ja"
-            }else
-            return "Nei"
-        }
-        document.getElementById("betingelse_sjekk").innerHTML = Arraywords("betingelse")
-        document.getElementById("algoritme_sjekk").innerHTML = Arraywords("algoritme")
-        document.getElementById("problemlosning_sjekk").innerHTML = Arraywords("problemløsning")
-
+           //kallefunskjon
+           Arraywords("algoritme")
+           Arraywords("betingelse")
+           Arraywords("problemløsning")
+        
+ 
 
 
         //PROBLEM 3
@@ -81,18 +71,28 @@
         const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
 
         //Din kode for å løse problem 3 her.
-        function getAverage(tall){
-            let sum = 0; //definere variabel til å 
-            for (let i = 0; i < tall.length; i++){ //lage variabel som skal gå gjennom helle bestemt arrayen
-                sum += tall[i] //til sum variabel legger jeg alle tall fra de to array som finnes, siden jeg har ikke bestmt hvilken array han skal gå gjennom
-                // console.log(sum)
+        function TaImot(array){
+            let utskrift = document.getElementById(`avg_array_one`)
+            let utskrift2 = document.getElementById(`avg_array_to`)
+
+            let sum = 0;
+            for(let tall = 0; tall < array.length; tall++){
+                // console.log(array[tall])
+                sum += array[tall]
+                console.log(sum)
             }
-            let gjennomsnittet = sum / tall.length //skal hente alle tall fra bestemt array og dele de ved antall tall som ligger i array
-            return gjennomsnittet
+            let gjennomsnitt = sum / array.length
+            
+            if(array.length == 9) {
+                utskrift.innerHTML = gjennomsnitt
+            }else{
+                utskrift2.innerHTML = gjennomsnitt
+            }
+            console.log(gjennomsnitt)
         }
-        //Kalle funskjon som kjører beregning av gjennomsnitt
-        document.getElementById("avg_array_one").innerHTML = getAverage(tall_array_en).toFixed(2) //til å få to tall etter komma
-        document.getElementById("avg_array_to").innerHTML = getAverage(tall_array_to)
+        TaImot(tall_array_en)
+        TaImot(tall_array_to)
+
     </script>
 </body>
 </html>
