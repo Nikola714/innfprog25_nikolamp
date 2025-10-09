@@ -16,12 +16,23 @@
     <p>Finnes ordet "problemløsning" i Programmeringsord-arrayen? <span id="problemlosning_sjekk"></span></p>
     <h2>Problem 3</h2>
     <p>Gjennomsnittet av tallene i tall_array_en er <span id="avg_array_one"></span></p>
-    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_one"></span></p>
+    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_to"></span></p>
 
     <script>
         //PROBLEM 1
-        
         //AI-kode for å løse problem 1 her.
+        const hexadecimal_characters = "ABCDEF1234567890"
+        const hexadecimal_characters_array = Array.from(hexadecimal_characters) //Array.from() = lager array av ABCDEF1234567890 så de skriver seg ut med koma 
+        let random_color_code = "#"
+
+         function printHeX(){
+            for (let tall = 0; tall <= 5; tall++){ //til å få seks tegner fra og med 0 til og med 5 gir oss 6 tegn
+                const tilfeldigVerdi = Math.floor(Math.random() * hexadecimal_characters_array.length)
+                document.getElementById("random_color").innerHTML = random_color_code +=  hexadecimal_characters_array[tilfeldigVerdi] 
+            }
+        }
+        printHeX()
+
 
         //PROBLEM 2
         const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
@@ -46,6 +57,18 @@
         const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
 
         //AI-kode for å løse problem 3 her.
+                function getAverage(tall){
+            let sum = 0; //definere variabel til å 
+            for (let i = 0; i < tall.length; i++){ //lage variabel som skal gå gjennom helle bestemt arrayen
+                sum += tall[i] //til sum variabel legger jeg alle tall fra de to array som finnes, siden jeg har ikke bestmt hvilken array han skal gå gjennom
+                // console.log(sum)
+            }
+            let gjennomsnittet = sum / tall.length //skal hente alle tall fra bestemt array og dele de ved antall tall som ligger i array
+            return gjennomsnittet
+        }
+        //Kalle funskjon som kjører beregning av gjennomsnitt
+        document.getElementById("avg_array_one").innerHTML = getAverage(tall_array_en).toFixed(2) //til å få to tall etter komma
+        document.getElementById("avg_array_to").innerHTML = getAverage(tall_array_to)
     </script>
 </body>
 </html>
