@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - tegningsmetode</title>
+    <!--til å vise den canvas dvs.tegning -->
+    <style>
+        #drawing-area{
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="drawing-area"></canvas>
+
+    <script>
+        const canvas = document.getElementById("drawing-area")
+
+        //kontekst|2d grafikk|
+        const ctx = canvas.getContext("2d")     
+        
+        const mainColor = "#800020"
+        
+        //verdi til tegning dvs.canvas | piksel verdi 
+        canvas.width = 800
+        canvas.height = 600
+
+        const rectangle = {
+            x: 100,
+            y: 500,
+            width: 600,
+            height: 200
+        }
+
+        const circle = {
+            x: 200,
+            y: 200,
+            radius: 10
+        }
+
+
+
+        //Tegne to streker
+        //starte noe nytt i et land sted
+        ctx.beginPath()
+        ctx.moveTo(0, 0)
+        ctx.lineTo(800, 600) //x-akse og y-akse
+        ctx.moveTo(800, 0)
+        ctx.lineTo(0, 600)
+        ctx.stroke() //bestemer at det er strek med verdi som vi skrevet over
+        ctx.closePath()
+
+
+
+        //Tegne rektangel
+        ctx.beginPath()
+
+        ctx.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height) //rektangel | starte | slutte | bredde | høyde
+
+        ctx.fillStyle = mainColor //fillStyle må komme før fyll
+        ctx.fill() //lage rektangel med fyll
+
+        ctx.strokeStyle = "blue"
+        ctx.stroke()
+
+        ctx.closePath()
+
+
+
+        //Tegne sirkel
+        ctx.beginPath()
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI)
+        ctx.fillStyle = "gold"
+        ctx.fill()
+        ctx.closePath()
+
+
+
+        //Tekst
+        ctx.beginPath()
+        ctx.font = "150px Comic Sans"
+        ctx.strokeStyle = "pink"
+        ctx.strokeText("5", 360, 420)
+        ctx.font = "24px Helvetica"
+        ctx.fillStyle = "purple"
+        ctx.fillText("Nikola", 200, 200)
+        ctx.closePath()
+
+        //Tegne eksisterne bilde i Canvas
+        const pumpkin = new Image()
+        let pumpkinLoaded = false
+        pumpkin.onload = () => {
+            ctx.drawImage(pumpkin, 0, 0, 128, 128) //position |position |width |height
+
+        }
+
+        pumpkin.src = "pumpkin.png"
+    </script>
+</body>
+</html>
