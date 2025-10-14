@@ -32,9 +32,14 @@
 
         //To do: lag funksjon som returnerer og skriver ut en tilfeldig laget hexadesimal fargekode bestått av seks tegn: A-F og 0-9 med hashtag foran
        
-
+        function getRandomColor(){
+            for(let i = 0; i <= 5; i++){
+                random_color_code += hexadecimal_characters_array[Math.floor(Math.random()* hexadecimal_characters_array.length)]
+            }
+        }
         
-
+        getRandomColor()
+        document.getElementById("random_color").innerHTML = random_color_code
 
 
 

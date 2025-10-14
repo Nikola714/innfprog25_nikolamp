@@ -57,17 +57,17 @@
         const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
 
         //AI-kode for å løse problem 3 her.
-                function getAverage(tall){
-            let sum = 0; //definere variabel til å 
-            for (let i = 0; i < tall.length; i++){ //lage variabel som skal gå gjennom helle bestemt arrayen
-                sum += tall[i] //til sum variabel legger jeg alle tall fra de to array som finnes, siden jeg har ikke bestmt hvilken array han skal gå gjennom
-                // console.log(sum)
-            }
-            let gjennomsnittet = sum / tall.length //skal hente alle tall fra bestemt array og dele de ved antall tall som ligger i array
-            return gjennomsnittet
+            function getAverage(tall){
+                let sum = 0; //definere variabel til å 
+                for (let i = 0; i < tall.length; i++){ //lage variabel som skal gå gjennom helle bestemt arrayen
+                    sum += tall[i] //til sum variabel legger jeg alle tall fra de to array som finnes, siden jeg har ikke bestmt hvilken array han skal gå gjennom
+                    // console.log(sum)
+                }
+                let gjennomsnittet = sum / tall.length //skal hente alle tall fra bestemt array og dele de ved antall tall som ligger i array
+                return gjennomsnittet
         }
         //Kalle funskjon som kjører beregning av gjennomsnitt
-        document.getElementById("avg_array_one").innerHTML = getAverage(tall_array_en).toFixed(2) //til å få to tall etter komma
+        document.getElementById("avg_array_one").innerHTML = getAverage(tall_array_en)
         document.getElementById("avg_array_to").innerHTML = getAverage(tall_array_to)
     </script>
 </body>
