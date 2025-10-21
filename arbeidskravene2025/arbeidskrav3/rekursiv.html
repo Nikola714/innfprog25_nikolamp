@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rekursive funksjoner i JavaScript</title>
+
+    <style>
+        #knappen{
+            position: fixed;
+            top: 80px;
+            margin: 1rem;
+            bottom: 50px;
+            height: 60px;
+            width: 200px;
+            margin-left: 500px;
+            background-color: #c68aab;
+        }
+    </style>
 </head>
 <body>
     <h1>Rekursiv utskrift av tall</h1>
     <ul id="numberList">
         <li>Tall vil skrives ut her.</li>
     </ul>
+    <button id="knappen"><a href=rekursiv.html>Refresh</a></button>
 
     <script>
         /*
@@ -18,9 +32,43 @@
             --Ditt svar her. Husk kilder--
         */
 
-        function numberSelector() {
-            // Din kode her
+       // Din kode her
+       //To do: lag funksjon 
+       //To do: Inne funskjon lag if test: til å få random tall 
+           //hvis tall er IKKE 4 og 7 da kjører funksjon på nytt og på nytt så lenge den trefer ikke 4 og 7
+       //To do: return random tall med Math(floor), Math.random
+       //To do: lag else til at funksjon skal stoppa når tall skal vare lik 4 og 7
+
+
+        function getRandomTall(min, max) {
+            const minTall = Math.floor(min);
+            const maxTall = Math.floor(max);
+            return Math.floor(Math.random() * (maxTall - minTall) + minTall); 
         }
+
+        function numberSelector() {
+            // Generer random tall som vi kan bruke videre i funksjonen
+            let randomTall = getRandomTall(1,10)
+
+
+            document.getElementById("numberList").innerHTML += `<li>${randomTall}</li>`;
+     
+            if(randomTall !== 4 && randomTall !== 7){
+                numberSelector()
+            } else{
+                return //return er tomt som betyr at if test skal stoppe etter han treffer 4 og 7
+            }
+        }
+        numberSelector()
+
+
+
+        console.log(getRandomTall(1,10))
+
+
+
+
+
     </script>
 </body>
 </html>
