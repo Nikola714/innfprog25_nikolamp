@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasjon i canvas</title>
+</head>
+<body>
+   <canvas id="drawingarea"></canvas> 
+   <script>
+    const canvas = document.getElementById("drawingarea")
+
+    const ctx = canvas.getContext("2d")
+
+    canvas.width = 800
+    canvas.height = 600
+
+
+    //Definere ballen
+    const ball = {
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        radius: 20,
+        speedX: 2,
+        speedY: 2
+    }
+    //
+
+
+
+    //Dette sikrer at funksjonen fungerer i alle nettlesere
+    requestAnimationFrame =
+    window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || window.mozRequestAnimationFrame
+    //
+
+
+    //Funksjonen som tegner og animerer ballen
+    function drawBall(){
+        //Kollisjonsdeteknologi
+            //Sjekke hvis ball.y er større enn canvas.height
+            if (ball.y + ball.radius > canvas.height){
+                ball.speedY = -ball.speedY
+            }
+            if(ball.x  + ball.radius > canvas.width){
+                ball.speedX = -ball.speedX
+            }
+            if(ball.y <= 0 + ball.radius){
+                ball.speedY = ball.speedY * -1
+            }
+            if(ball.x - ball.radius <= 0){
+                ball.speedX = ball.speedX * -1
+            }
+            
+            // //ballen spretter seg fra bunn
+            // if(ball.y > canvas.height){
+            //     ball.speed =- ball.speed
+            //     console.log("Ballen er utenfor rammen")
+            // }
+            // //
+
+
+        //Oppdater posisjon: Sletter forrige tegning slik at det ikke blir streker
+        ball.x += ball.speedX
+        ball.y += ball.speedY
+        //
+
+
+
+
+        //"Slette" elementer
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        //
+
+        //Tegner ballen på nytt: Tegner en sirkel (arc) der ballen nå befinner seg.
+        ctx.beginPath()
+        ctx.fillStyle = "#003366"
+        ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI) //x=400px, y = 300px
+        ctx.fill()
+        ctx.closePath()
+        //
+
+
+        //Kaller seg selv igjen: Fortsetter animasjonen ved å kalle funksjonen igjen for neste bilde
+        requestAnimationFrame(drawBall)
+        //
+    }
+    //
+    
+    //Starter animasjonen: Kjører funksjonen for første gang — deretter går alt av seg selv via requestAnimationFrame
+    drawBall()
+    //
+
+
+
+    // setInterval(() => {
+    //     ball.x += 20
+    //     drawBall()
+    //     console.log(ball.x, ball.y)
+    // }, 1000)
+    
+   </script>
+</body>
+</html>
