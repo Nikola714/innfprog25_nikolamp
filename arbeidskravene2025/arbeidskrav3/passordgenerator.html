@@ -8,6 +8,40 @@
 <body>
     <h1>Passordgenerator</h1>
     <!-- Felter for brukervalg her -->
+    <form>
+        <label>
+            Velg lengde på passordet:
+            (min: 4 | max: 20)
+            <input type="number" min="4" max="20">
+        </label>
+
+            <p>Velg størrelse på bokstaver:</p>
+            <p>(stor, små eller begge)</p>
+            <label>
+                <input type="radio" id="stor" name="bokstaver">
+                ABCDE
+            </label>
+            <label>
+                <input type="radio" id="liten" name="bokstaver">
+                abcde
+            </label>
+            <label>
+                <input type="radio" id="begge" name="bokstaver">
+                ABCDEabcde
+            </label>
+
+            <p>Vil du ha symboler?</p>
+            <p>(du kan ha symboler hvis du vil eller ikke)</p>
+
+            <label>
+            <input type="radio" name="symboler">
+                Ja
+            </label>
+            <label>
+                <input type="radio" name="symboler">
+                Nei
+            </label>
+    </form>
 
 
      <p>Ditt passord: <span id="generatedPassword"></span></p>
