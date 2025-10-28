@@ -8,11 +8,11 @@
 <body>
     <h1>Passordgenerator</h1>
     <!-- Felter for brukervalg her -->
-    <form>
+    <form action="passordgenerator.html">
         <label>
             Velg lengde på passordet:
             (min: 4 | max: 20)
-            <input type="number" min="4" max="20">
+            <input type="number" min="4" max="20" id="lengde">
         </label>
 
             <p>Velg størrelse på bokstaver:</p>
@@ -41,10 +41,24 @@
                 <input type="radio" name="symboler">
                 Nei
             </label>
+
+            <p>Vil du ha tall?</p>
+            <p>(du kan ha tall hvis du vil eller ikke)</p>
+
+            <label>
+            <input type="radio" name="tall">
+                Ja
+            </label>
+            <label>
+                <input type="radio" name="tall">
+                Nei
+            </label>
+
+            <input id="send" type="submit" value="Generer passord">
     </form>
 
-
      <p>Ditt passord: <span id="generatedPassword"></span></p>
+     <input type="text">
 
      <script>
         const lowercase = "abcdefghijklmnopqrstuvwxyz";
@@ -54,7 +68,39 @@
 
         function passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
             /* Din kode her */
+            //.value til å hente langt verdi som brukeren skrevet
+
+            //if test for å sjekke om brukeren ville ha stor, små eller begge muligheter i passord
+
+            //sjekk om brukeren ville ha symboler eller ikke
+            
+            //når brukeren velger knappen "Generer passord" så generer man pasord
+                //Math.random får å få tilfellig verdi 
+
+
+            const passord = "" //til å lege verdi til passord basert på valg brukeren tok
+
+
+           document.getElementById("lengde").value
+            console.log("lengde")
+            document.getElementById("stor")
+
+
+            document.getElementById("liten").innerHTML = lowercase
+            document.getElementById("begge").innerHTML = lowercase += uppercase
+            document.getElementById("symboler").innerHTML = symbols 
+
+            //Kalle funskjon når brukeren klikker på knappen "Generer passord"
+            document.getElementById("send").addEventListener("click", passwordgenerator)
+
+
+
+            if(radio == "Ja"){
+                document.getElementById("generatedPassword").innerHTML += symbols
+            } 
+            
         }
+        passwordgenerator(length = "lengde".value, includeLowercase = "liten", includeUppercase = "stor", includeNumbers = "tall", includeSymbols = "symboler")
      </script>
 </body>
 </html>
