@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passordgenerator</title>
+</head>
+<body>
+    <h1>Passordgenerator</h1>
+    <!-- Felter for brukervalg her -->
+    <form>
+        <!--Lengde-->
+        <label>
+            Velg lengde på passordet:
+            (min: 4 | max: 20)
+            <input type="number" min="4" max="20" id="lengde">
+        </label>
+
+        <!--Størrelse-->
+        <p>Velg størrelse på bokstaver:</p>
+        <p>(stor, små eller begge)</p>
+        <label id="bokstaver">
+            <input type="radio" id="stor" name="bokstaver">
+            ABCDE
+        </label>
+        <label>
+            <input type="radio" id="liten" name="bokstaver">
+            abcde
+        </label>
+        <label>
+            <input type="radio" id="begge" name="bokstaver">
+            ABCDEabcde
+        </label>
+
+        <!--Symboler-->
+        <p>Vil du ha symboler?</p>
+        <p>(du kan ha symboler hvis du vil eller ikke)</p>
+
+        <label>
+        <input type="radio" name="symboler">
+            Ja
+        </label>
+        <label>
+            <input type="radio" name="symboler">
+            Nei
+        </label>
+
+        <!--Tall-->
+        <p>Vil du ha tall?</p>
+        <p>(du kan ha tall hvis du vil eller ikke)</p>
+
+        <label>
+        <input type="radio" name="tall">
+            Ja
+        </label>
+        <label>
+            <input type="radio" name="tall" >
+            Nei
+        </label>
+
+        <!--Knappen til å sende informasjon-->
+        <input onclick="passwordgenerator()" id="send" type="submit" value="Generer passord">
+    </form>
+
+    <!--Passord generator-->
+     <p>Ditt passord: <span id="generatedPassword"></span></p>
+     <input type="text">
+     
+
+
+     <script>
+        const lowercase = "abcdefghijklmnopqrstuvwxyz";
+        const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const numbers = "0123456789";
+        const symbols = "!@#$%^&*()_+-=[]{}|;:',.<>?/`~";
+
+        function passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
+            /* Din kode her */
+            //hent langt verdi som brukeren skrevet
+
+            //if test for å sjekke om brukeren ville ha stor, små eller begge muligheter i passord
+
+            //sjekk om brukeren ville ha symboler eller ikke
+            
+            //når brukeren velger knappen "Generer passord" så generer man pasord
+               
+            //Math.random får å få tilfellig verdi i passord
+
+            let passordInnhold = ""
+
+            let passordLengde = document.getElementById("lengde").value
+
+            let bokstavStorrelse = document.getElementById("bokstaver")
+
+            bokstavStorrelse.addEventListener("click", () => {
+                if(bokstavStorrelse === "stor"){
+                    passordInnhold += uppercase
+                }else if (bokstavStorrelse === "liten"){
+                    passordInnhold += lowercase
+                } else{
+                    passordInnhold += uppercase + lowercase
+                }
+            })
+
+
+            let passordSymboler = "Ja"
+            if(passordSymboler === "Ja"){
+                passordInnhold += symbols
+            } else{
+                return passordInnhold
+            }
+
+            let passordTall = "Ja"
+            if(passordTall === "Ja"){
+                passordInnhold += numbers
+            }else{
+                return passordInnhold
+            }
+
+
+           }
+     </script>
+</body>
+</html>
