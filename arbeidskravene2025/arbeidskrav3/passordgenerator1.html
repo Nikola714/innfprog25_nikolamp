@@ -8,7 +8,6 @@
 <body>
     <h1>Passordgenerator</h1>
     <!-- Felter for brukervalg her -->
-    <form>
         <!--Lengde-->
         <label>
             Velg lengde på passordet:
@@ -20,15 +19,15 @@
         <p>Velg størrelse på bokstaver:</p>
         <p>(stor, små eller begge)</p>
         <label id="bokstaver">
-            <input type="radio" id="stor" name="bokstaver">
+            <input type="radio" id="stor" name="bokstaver" value="stor">
             ABCDE
         </label>
         <label>
-            <input type="radio" id="liten" name="bokstaver">
+            <input type="radio" id="liten" name="bokstaver" value="liten">
             abcde
         </label>
         <label>
-            <input type="radio" id="begge" name="bokstaver">
+            <input type="radio" id="begge" name="bokstaver" value="begge">
             ABCDEabcde
         </label>
 
@@ -37,11 +36,11 @@
         <p>(du kan ha symboler hvis du vil eller ikke)</p>
 
         <label>
-        <input type="radio" name="symboler">
+        <input type="radio" id="medSymboler" name="symboler">
             Ja
         </label>
         <label>
-            <input type="radio" name="symboler">
+            <input type="radio" id="utenSymboler" name="symboler">
             Nei
         </label>
 
@@ -59,8 +58,8 @@
         </label>
 
         <!--Knappen til å sende informasjon-->
-        <input onclick="passwordgenerator()" id="send" type="submit" value="Generer passord">
-    </form>
+        <button onclick="passwordgenerator()" id="send">Generer passord</button>
+
 
     <!--Passord generator-->
      <p>Ditt passord: <span id="generatedPassword"></span></p>
@@ -74,7 +73,7 @@
         const numbers = "0123456789";
         const symbols = "!@#$%^&*()_+-=[]{}|;:',.<>?/`~";
 
-        function passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
+        function passwordgenerator() {
             /* Din kode her */
             //hent langt verdi som brukeren skrevet
 
@@ -86,38 +85,61 @@
                
             //Math.random får å få tilfellig verdi i passord
 
+
+            //variabel som skal samle alle verdi brukeren har valgt
             let passordInnhold = ""
 
-            let passordLengde = document.getElementById("lengde").value
+            //Lenge for passord
+            const passordLengde = document.getElementById("lengde").value
+            
 
-            let bokstavStorrelse = document.getElementById("bokstaver")
+            //størrelse for bokstaver
+            const storVerdi = document.getElementById("stor").checked
+            const litenVerdi = document.getElementById("liten").checked
+            const beggeVerdi = document.getElementById("begge").checked
+            // console.log(storVerdi)
+            // console.log(litenVerdi)
+            // console.log(beggeVerdi)
 
-            bokstavStorrelse.addEventListener("click", () => {
-                if(bokstavStorrelse === "stor"){
-                    passordInnhold += uppercase
-                }else if (bokstavStorrelse === "liten"){
-                    passordInnhold += lowercase
-                } else{
-                    passordInnhold += uppercase + lowercase
-                }
-            })
+            
+            if(storVerdi === true){
+                passordInnhold += uppercase
+            }else if (litenVerdi === true){
+                passordInnhold += lowercase
+            } else if (beggeVerdi === true){
+                passordInnhold += uppercase + lowercase
+            }else{
+                alert("Du mangler størrelse for bokstaver")
+            }
+            
+        
 
+            //Symboler valg
+            const symbolerJa = document.getElementById("medSymboler").checked
+            const symbolerNei = document.getElementById("utenSymboler").checked
+             console.log(symbolerJa)
+             console.log(symbolerNei)
 
-            let passordSymboler = "Ja"
-            if(passordSymboler === "Ja"){
+            if(symbolerJa === true){
                 passordInnhold += symbols
-            } else{
-                return passordInnhold
+            } else if(symbolerNei === true){
+                // ingenting skjer her
+            }
+            else{
+                alert("Velg om du vil ha symboler eller ikke :)")
             }
 
+            
+            
             let passordTall = "Ja"
             if(passordTall === "Ja"){
                 passordInnhold += numbers
             }else{
                 return passordInnhold
             }
-
-
+            
+            
+            console.log(passordInnhold) //flytte den her til å se hvordan passord ser ut etter alt ble valgt
            }
      </script>
 </body>
