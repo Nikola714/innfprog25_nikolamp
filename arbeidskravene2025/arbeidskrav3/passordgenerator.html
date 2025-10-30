@@ -3,62 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Passordgenerator</title>
 </head>
 <body>
     <h1>Passordgenerator</h1>
     <!-- Felter for brukervalg her -->
-    <form action="passordgenerator.html">
+        <!--Lengde-->
         <label>
             Velg lengde på passordet:
             (min: 4 | max: 20)
-            <input type="number" min="4" max="20" id="lengde">
+            <input type="number" min="4" max="20" id="lengde" required>
         </label>
 
-            <p>Velg størrelse på bokstaver:</p>
-            <p>(stor, små eller begge)</p>
-            <label>
-                <input type="radio" id="stor" name="bokstaver">
-                ABCDE
-            </label>
-            <label>
-                <input type="radio" id="liten" name="bokstaver">
-                abcde
-            </label>
-            <label>
-                <input type="radio" id="begge" name="bokstaver">
-                ABCDEabcde
-            </label>
+        <!--Størrelse-->
+        <p>Velg størrelse på bokstaver:</p>
+        <p>(stor, små eller begge)</p>
+        <label id="bokstaver">
+            <input type="radio" id="stor" name="bokstaver" value="stor">
+            ABCDE
+        </label>
+        <label>
+            <input type="radio" id="liten" name="bokstaver" value="liten">
+            abcde
+        </label>
+        <label>
+            <input type="radio" id="begge" name="bokstaver" value="begge">
+            ABCDEabcde
+        </label>
 
-            <p>Vil du ha symboler?</p>
-            <p>(du kan ha symboler hvis du vil eller ikke)</p>
+        <!--Symboler-->
+        <p>Vil du ha symboler?</p>
+        <p>(du kan ha symboler hvis du vil eller ikke)</p>
 
-            <label>
-            <input type="radio" name="symboler">
-                Ja
-            </label>
-            <label>
-                <input type="radio" name="symboler">
-                Nei
-            </label>
+        <label>
+        <input type="radio" id="medSymboler" name="symboler">
+            Ja
+        </label>
+        <label>
+            <input type="radio" id="utenSymboler" name="symboler">
+            Nei
+        </label>
 
-            <p>Vil du ha tall?</p>
-            <p>(du kan ha tall hvis du vil eller ikke)</p>
+        <!--Tall-->
+        <p>Vil du ha tall?</p>
+        <p>(du kan ha tall hvis du vil eller ikke)</p>
 
-            <label>
-            <input type="radio" name="tall">
-                Ja
-            </label>
-            <label>
-                <input type="radio" name="tall">
-                Nei
-            </label>
+        <label>
+        <input type="radio" id="medTall" name="tall">
+            Ja
+        </label>
+        <label>
+            <input type="radio" id="utenTall" name="tall" >
+            Nei
+        </label>
 
-            <input id="send" type="submit" value="Generer passord">
-    </form>
+        <!--Knappen til å sende informasjon-->
+        <button onclick="passwordgenerator()" id="sendKnapp">Generer passord</button>
 
+
+    <!--Passord generator-->
      <p>Ditt passord: <span id="generatedPassword"></span></p>
-     <input type="text">
+     <input type="text" id="ferdigPassord">
+     
+
 
      <script>
         const lowercase = "abcdefghijklmnopqrstuvwxyz";
@@ -66,41 +74,81 @@
         const numbers = "0123456789";
         const symbols = "!@#$%^&*()_+-=[]{}|;:',.<>?/`~";
 
-        function passwordgenerator(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
+        function passwordgenerator() {
             /* Din kode her */
-            //.value til å hente langt verdi som brukeren skrevet
+            //hent langt verdi som brukeren skrevet
 
             //if test for å sjekke om brukeren ville ha stor, små eller begge muligheter i passord
 
             //sjekk om brukeren ville ha symboler eller ikke
             
             //når brukeren velger knappen "Generer passord" så generer man pasord
-                //Math.random får å få tilfellig verdi 
+               
+            //Math.random får å få tilfellig verdi i passord
 
 
-            const passord = "" //til å lege verdi til passord basert på valg brukeren tok
+            //variabel som skal samle alle verdi brukeren har valgt
+            let passordInnhold = ""
 
-
-           document.getElementById("lengde").value
-            console.log("lengde")
-            document.getElementById("stor")
-
-
-            document.getElementById("liten").innerHTML = lowercase
-            document.getElementById("begge").innerHTML = lowercase += uppercase
-            document.getElementById("symboler").innerHTML = symbols 
-
-            //Kalle funskjon når brukeren klikker på knappen "Generer passord"
-            document.getElementById("send").addEventListener("click", passwordgenerator)
-
-
-
-            if(radio == "Ja"){
-                document.getElementById("generatedPassword").innerHTML += symbols
-            } 
+            //Lenge for passord
+            const passordLengde = document.getElementById("lengde").value
             
-        }
-        passwordgenerator(length = "lengde".value, includeLowercase = "liten", includeUppercase = "stor", includeNumbers = "tall", includeSymbols = "symboler")
+
+            //størrelse for bokstaver
+            const storVerdi = document.getElementById("stor").checked
+            const litenVerdi = document.getElementById("liten").checked
+            const beggeVerdi = document.getElementById("begge").checked
+            // console.log(storVerdi)
+            // console.log(litenVerdi)
+            // console.log(beggeVerdi)
+
+            
+            if(storVerdi === true){
+                passordInnhold += uppercase
+            }else if (litenVerdi === true){
+                passordInnhold += lowercase
+            } else if (beggeVerdi === true){
+                passordInnhold += uppercase + lowercase
+            }else{
+                alert("Du mangler størrelse for bokstaver")
+            }
+            
+        
+
+            //Symboler valg
+            const symbolerJa = document.getElementById("medSymboler").checked
+            const symbolerNei = document.getElementById("utenSymboler").checked
+            //  console.log(symbolerJa)
+            //  console.log(symbolerNei)
+
+            if(symbolerJa === true){
+                passordInnhold += symbols
+            } else if(symbolerNei === true){
+                // ingenting skjer her
+            }
+            else{
+                alert("Velg om du vil ha symboler eller ikke :)")
+            }
+
+            
+            
+            //Tall
+            const tallJa = document.getElementById("medTall").checked
+            const tallNei = document.getElementById("utenTall").checked
+            // console.log(tallJa)
+            // console.log(tallNei)
+
+            if(tallJa === true){
+                passordInnhold += numbers
+            } else if(tallNei === true){
+                null  // ingenting skjer her med metode 2
+            } else{
+                alert("Velg om du vil ha tall eller ikke")
+            }
+            
+
+            console.log(passordInnhold) //flytte den her til å se hvordan passord ser ut etter alt ble valgt
+           }
      </script>
 </body>
 </html>
