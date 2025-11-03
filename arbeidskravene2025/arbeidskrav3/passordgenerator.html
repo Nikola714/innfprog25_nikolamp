@@ -14,7 +14,7 @@
             
             <h2>Velg lengde på passordet:</h2>
             <h3>(min: 4 | max: 20)</h3>
-            <input type="number" min="4" max="20" id="lengde" required>
+            <input type="number" min="4" max="20" id="lengde">
             
             <!--Størrelse-->
             <h2>Velg størrelse på bokstaver:</h2>
@@ -91,8 +91,8 @@
             //variabel som skal samle alle verdi brukeren har valgt
             let passordInnhold = ""
 
-            //Lenge for passord
-            const passordLengde = document.getElementById("lengde").value
+            
+            
             
 
             //størrelse for bokstaver
@@ -147,8 +147,26 @@
                 alert("Velg om du vil ha tall eller ikke")
             }
             
+            
+            //Lenge for passord
+            const passordLengde = document.getElementById("lengde").value
+            if(passordLengde >= 4 && passordLengde <= 20){
+               // passordInnhold === passordLengde.lenght
+            } else if(passordLengde >= 20){
+                alert("Du kan ha max 20 tegninger i passord, du valgt for langt passord :)")
+            }else{
+                alert("Du kan ha min 4 tegninger i passord, dvs. du valgt for små")
+            }
+
+            const lengde = Math.floor(Math.random() * passordInnhold.length)
 
             console.log(passordInnhold) //flytte den her til å se hvordan passord ser ut etter alt ble valgt
+            console.log(lengde, passordInnhold[lengde])
+
+
+            //Leg verdi fra passordInnhold til input
+            //Leg til Math metode for å få random tall
+            //Passord må ha lengde som brukeren valgt
            }
      </script>
 </body>
