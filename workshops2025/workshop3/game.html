@@ -148,6 +148,7 @@
       canvas.height = 600
 
       const ctx = canvas.getContext("2d")
+
       // Config-objekt
       const gameConfig = {
         playerName: "Thor",
@@ -155,7 +156,7 @@
         points: 4000,
         duration: 30,
         gamePaused: false,
-        pauseText: "Press P top pause"
+        pauseText: "Press P to pause"
       }
 
       console.log(gameConfig)
@@ -168,7 +169,6 @@
         arrays: 7,
       }
 
-
       //Fortran konfigurasjon
       const fortran = {
         speed: 1,
@@ -176,9 +176,7 @@
         y: canvas.height / 2
       }
 
-
       const itemTypes = ["variables", "arrays", "loops", "functions", "energydrinks", "bugs"]
-
 
       function updateStaticUI() {
         // Print playerinfo to HTML
@@ -238,11 +236,12 @@
           toggleVisibility("notebook")
         } else if (event.code === "KeyI") {
           toggleVisibility("info")
-        } else if(event.code === "KeyP"){
+        } else if (event.code === "KeyP"){
           // gameConfig.gamePaused === true 
           // ? gameConfig.gamePaused = false 
-          // : gameConfig.gamePaused === false 
-          // ? gameConfig.gamePaused = true : null
+          // : gameConfig.gamePaused === false
+          // ? gameConfig.gamePaused = true 
+          // : null
 
           gameConfig.gamePaused = !gameConfig.gamePaused
         }
@@ -271,68 +270,81 @@
 
       function updateConfigValue(obj, configType, value) {
         console.log(configType)
-        obj === "notebook" ? notebook[configType] += value : obj === "gameConfig" ? gameConfig[configType] += value : null
-
+        obj === notebook ? notebook[configType] += value : obj === gameConfig ? gameConfig[configType] += value : null
 
         updateStaticUI()
       }
 
-      updateConfigValue("notebook", "variables", 10)
-      updateConfigValue("notebook", "arrays", 40)
-      updateConfigValue("bjarne", "energy", 100)
-      
+      updateConfigValue(notebook, "variables", 10)
+      updateConfigValue(notebook, "arrays", 40)
+      updateConfigValue(gameConfig, "energy", 100)
 
-      
+
+
       let fortranLoaded = false
       let fortranImage = new Image()
       fortranImage.src = "icons/fortran.png"
-      console.log(fortranImage.src)
-      fortranImage.onload = () => {
-        fortranLoaded = true
+      fortranImage.onload = () => { 
+        fortranLoaded = true 
       }
 
-
-      function drawItem(){
+      function drawItem(type, x, y) {
         let itemImage = new Image()
-        itemImage.src = "icons/array.svg"
+        itemImage.src = `icons/${type}.svg`
         itemImage.onload = () => {
-          ctx.drawImage(itemImage, canvas.width / 2, canvas.height / 2)
+          ctx.drawImage(itemImage, x, y)
+        }
+        if (type != "bug") {
+          ctx.beginPath()
+          ctx.arc(x, y, 10, 0, 2 * Math.PI)
+          ctx.fillStyle = "red"
+          ctx.fill()
+          ctx.fillStyle = "white"
+          ctx.font = "11px Verdana"
+          ctx.fillText("99", x - 7, y + 4)
+          ctx.closePath()
         }
       }
-      drawImage()
-      
-      requestAnimationFrame = window.mozRequestAnimationFrame || window.msRequestAnimationFrame || window.webkitRequestAnimationFrame || window.requestAnimationFrame
 
+      requestAnimationFrame = window.mozRequestAnimationFrame ||
+      window.msRequestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.requestAnimationFrame
 
-      function drawElements(){
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
+      function drawElements() {
+        // ctx.clearRect(0, 0, canvas.width, canvas.height)
+
         if(fortranLoaded = true){
           ctx.drawImage(fortranImage, fortran.x, fortran.y)
         }
-        
+
         if(gameConfig.gamePaused === true){
           ctx.beginPath()
           ctx.fillStyle = "red"
           ctx.font = "3rem Arial"
-          ctx.fillText("PAUSED", (canvas.width / 2) - 80,canvas.height / 2)
+          ctx.fillText("PAUSED", canvas.width / 2 - 100, canvas.height / 2)
           ctx.closePath()
 
           gameConfig.pauseText = "Press P to unpause"
-        }else {
+        } else {
           gameConfig.pauseText = "Press P to pause"
         }
 
+          ctx.beginPath()
+          ctx.fillStyle = "#ffffff"
+          ctx.fillRect(canvas.width - 150, canvas.height - 25, 150, 25)
+          ctx.fillStyle = "#3c429b"
+          ctx.font = "1rem Arial"
+          ctx.fillText(gameConfig.pauseText, canvas.width - 143, canvas.height - 7)
+          ctx.closePath()
 
-        ctx.beginPath()
-        ctx.fillStyle = "#ffffff"
-        ctx.fillRect(canvas.width - 150, canvas.height - 25, 150, 25)
-        ctx.fillStyle = "#3c429b"
-        ctx.font = "1rem Arial"
-        ctx.fillText(gameConfig.pauseText, canvas.width - 143, canvas.height - 7)
-        ctx.closePath()
-        
+          drawItem("function", 130, 150)
+          drawItem("bug", 500, 500)
+
+
         requestAnimationFrame(drawElements)
       }
+
       drawElements()
     </script>
   </body>
