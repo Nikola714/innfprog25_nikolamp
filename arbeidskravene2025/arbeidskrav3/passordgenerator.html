@@ -64,7 +64,7 @@
     
     <!--Passord generator-->
     <p>Ditt passord: <span id="generatedPassword"></span></p>
-    <input type="text" id="ferdigPassord">
+    <input type="text" id="ferdigPassord" placeholder="Passordet ditt vises her">
 </div>
     
     
@@ -87,14 +87,12 @@
             
             //Math.random får å få tilfellig verdi i passord
 
-
+            
             //variabel som skal samle alle verdi brukeren har valgt
-            let passordInnhold = ""
-
+            let passordInnhold = "" //inneholder brukeren valgt
+            let passord = '' //gi passord med radom verdi fra passordInnhold            
             
             
-            
-
             //størrelse for bokstaver
             const storVerdi = document.getElementById("stor").checked
             const litenVerdi = document.getElementById("liten").checked
@@ -102,7 +100,7 @@
             // console.log(storVerdi)
             // console.log(litenVerdi)
             // console.log(beggeVerdi)
-
+            
             
             if(storVerdi === true){
                 passordInnhold += uppercase
@@ -110,27 +108,28 @@
                 passordInnhold += lowercase
             } else if (beggeVerdi === true){
                 passordInnhold += uppercase + lowercase
-            }else{
-                alert("Du mangler størrelse for bokstaver")
             }
+            //else{
+                //     alert("Du mangler størrelse for bokstaver")
+            // }
             
-        
-
+            
+            
             //Symboler valg
             const symbolerJa = document.getElementById("medSymboler").checked
             const symbolerNei = document.getElementById("utenSymboler").checked
             //  console.log(symbolerJa)
             //  console.log(symbolerNei)
-
+            
             if(symbolerJa === true){
                 passordInnhold += symbols
             } else if(symbolerNei === true){
                 // ingenting skjer her
             }
-            else{
-                alert("Velg om du vil ha symboler eller ikke :)")
-            }
-
+            // else{
+            //     alert("Velg om du vil ha symboler eller ikke :)")
+            // }
+            
             
             
             //Tall
@@ -143,26 +142,52 @@
                 passordInnhold += numbers
             } else if(tallNei === true){
                 null  // ingenting skjer her med metode 2
-            } else{
-                alert("Velg om du vil ha tall eller ikke")
-            }
-            
-            
-            //Lenge for passord
-            const passordLengde = document.getElementById("lengde").value
-            if(passordLengde >= 4 && passordLengde <= 20){
-               // passordInnhold === passordLengde.lenght
+            } 
+            // else{
+                //     alert("Velg om du vil ha tall eller ikke")
+                // }
+                
+                
+                //Lengde for passord
+                let passordLengde = document.getElementById("lengde").value
+                if(passordLengde >= 4 && passordLengde <= 20){
+                    // passordInnhold === passordLengde.lenght
+                    
+                    for(let i = 0; i < passordLengde; i++){
+                        let randomVerdi = Math.floor(Math.random() * passordInnhold.length)
+                        passord += passordInnhold[randomVerdi]
+                        // studass:
+                        // HVIS tall er valgt OG passord IKKE INNEHOLDER TALL, TØM passord-strengen og kjør igjen
+                    // HVIS symboler er valgt OG passord IKKE INNEHOLDER symboler, TØM passord-streng og kjør igjen
+                    // if (tallJa === true && !passord.includes(Array.from.numbers)){
+                    //     generatePassword()
+                    // }
+                }
+                
+                document.getElementById("ferdigPassord").value = passord;
+
             } else if(passordLengde >= 20){
                 alert("Du kan ha max 20 tegninger i passord, du valgt for langt passord :)")
             }else{
                 alert("Du kan ha min 4 tegninger i passord, dvs. du valgt for små")
             }
+            
+            
+            const alertMelding = "Feil"
+            if(storVerdi === false && litenVerdi === false && beggeVerdi === false && symbolerJa === false && tallJa === false){
+                document.getElementById("ferdigPassord").value = alertMelding 
+                alert("Velg innhold til å generere passord :)") 
+            }
 
-            const lengde = Math.floor(Math.random() * passordInnhold.length)
 
-            console.log(passordInnhold) //flytte den her til å se hvordan passord ser ut etter alt ble valgt
-            console.log(lengde, passordInnhold[lengde])
-
+            // let length = passordLengde
+            
+            // passordInnhold += length
+            //console.log(passord)
+            // console.log(lengde, passordInnhold[lengde])
+            // console.log(length)
+            //console.log(passordInnhold) //flytte den her til å se hvordan passord ser ut etter alt ble valgt
+            
 
             //Leg verdi fra passordInnhold til input
             //Leg til Math metode for å få random tall

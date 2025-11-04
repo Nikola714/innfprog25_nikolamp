@@ -13,8 +13,9 @@
 }
 
 #ferdigPassord{
-    padding: 0.5rem;
     margin: 0rem 0rem 1rem 0rem;
+    padding: 0.5rem;
+    min-width: 210px;
 }
 
 h2{
