@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Passordgenerator</title>
+</head>
+<body>
+    <h1>Passordgenerator</h1>
+
+    <label for="length">Lengde på passord:</label>
+    <input type="number" id="length" min="1"
+    <label>Bokstavtyper:</label><br>
+    <input type="radio" id="lowercase" name="letters" value="lowercase" checked>
+    <label for="lowercase">Små bokstaver</label><br>
+    <input type="radio" id="uppercase" name="letters" value="uppercase">
+    <label for="uppercase">Store bokstaver</label><br>
+    <input type="radio" id="both" name="letters" value="both">
+    <label for="both">Begge deler</label><br><br>
+
+    <input type="checkbox" id="special">
+    <label for="special">Inkluder spesialtegn</label><br><br>
+
+    <button onclick="passwordGenerator()">Generer passord</button>
+
+    <h2>Ditt passord:</h2>
+    <p id="result"></p>
+
+    <!-- <script src="password.js"></script> -->
+     <script>
+        function passwordGenerator() {
+    const length = parseInt(document.getElementById('length').value);
+    const lettersChoice = document.querySelector('input[name="letters"]:checked').value;
+    const includeSpecial = document.getElementById('special').checked;
+
+    let characters = '';
+    const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const specialChars = '!@#$%^&*()_+[]{}|;:,.<>?';
+
+    // Velg bokstaver
+    if (lettersChoice === 'lowercase') {
+        characters += lowercase;
+    } else if (lettersChoice === 'uppercase') {
+        characters += uppercase;
+    } else if (lettersChoice === 'both') {
+        characters += lowercase + uppercase;
+    }
+
+    // Legg til spesialtegn hvis ønsket
+    if (includeSpecial) {
+        characters += specialChars;
+    }
+
+    // Generer passord
+    let password = '';
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        password += characters[randomIndex];
+    }
+
+    // Vis passordet
+    document.getElementById('result').textContent = password;
+}
+
+     </script>
+</body>
+</html>
