@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekursive funksjoner i JavaScript</title>
+    </style>
+</head>
+<body>
+
+    <script>
+        function velgTall() {
+    // Velg et tilfeldig tall mellom 1 og 9
+    const tall = Math.floor(Math.random() * 9) + 1;
+    
+    // Skriv ut tallet
+        console.log(tall);
+    
+    // Stopper rekursjonen hvis tallet er 4 eller 7
+    if (tall === 4 || tall === 7) {
+        return;
+    } else {
+        // Ellers kjør funksjonen rekursivt igjen
+        velgTall();
+    }
+}
+
+// Start funksjonen
+velgTall();
+
+
+
+
+
+    </script>
+</body>
+</html>
