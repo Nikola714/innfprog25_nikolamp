@@ -312,9 +312,9 @@
       window.requestAnimationFrame
 
       function drawElements() {
-        // ctx.clearRect(0, 0, canvas.width, canvas.height)
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-        if(fortranLoaded = true){
+        if(fortranLoaded === true){
           ctx.drawImage(fortranImage, fortran.x, fortran.y)
         }
 
