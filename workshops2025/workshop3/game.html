@@ -294,6 +294,8 @@
         itemImage.onload = () => {
           ctx.drawImage(itemImage, x, y)
         }
+
+
         if (type != "bug") {
           ctx.beginPath()
           ctx.arc(x, y, 10, 0, 2 * Math.PI)
@@ -306,17 +308,47 @@
         }
       }
 
+    //legget til seks ny bilder
+      //bilde 1
+      let variableImage = new Image()
+      variableImage.src = `icons/variable.svg`
+      //bilde2
+      let arrayImage = new Image()
+      arrayImage.src = `icons/array.svg`
+      //bilde3
+      let loppImage = new Image()
+      loppImage.src = `icons/loop.svg`
+      //bilde4
+      let functionImage = new Image()
+      functionImage.src = `icons/function.svg`
+      //bilde5
+      let bugImage = new Image()
+      bugImage.src = `icons/bug.svg`
+      //bilde6
+      let energydrinkImage = new Image()
+      energydrinkImage.src = `icons/energydrink.svg`
+
+      
       requestAnimationFrame = window.mozRequestAnimationFrame ||
       window.msRequestAnimationFrame ||
       window.webkitRequestAnimationFrame ||
       window.requestAnimationFrame
-
+      
       function drawElements() {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-
+        
         if(fortranLoaded === true){
           ctx.drawImage(fortranImage, fortran.x, fortran.y)
         }
+
+      //legget til seks ny bilder (kalle dem) : de bilder skal vare der hele tiden
+      ctx.drawImage(variableImage, 100, 150)
+      ctx.drawImage(arrayImage, 300, 100)
+      ctx.drawImage(loppImage, 600, 100)
+      ctx.drawImage(functionImage, 100, 500)
+      ctx.drawImage(bugImage, 700,400)
+      ctx.drawImage(energydrinkImage, 200, 500)
+      
 
         if(gameConfig.gamePaused === true){
           ctx.beginPath()
