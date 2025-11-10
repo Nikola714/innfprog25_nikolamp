@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 2: Squares</title>
+</head>
+<body>
+    <canvas id="firkant"></canvas>
+    
+    <script>
+        const canvas = document.getElementById("firkant");
+        const ctx = canvas.getContext("2d");
+        canvas.width = 600
+        canvas.height = 600
+
+        ctx.beginPath();
+        //Det første skal fylles med rød farge og tegnes fra øverste venstre hjørne
+        ctx.rect(0, 0, 200, 200)
+        ctx.fillStyle = "#ff0000"
+        ctx.fill()
+        ctx.stroke()
+        ctx.closePath()
+
+        
+
+
+        //Det andre skal fylles med grønn frage og tegnes i midten
+        ctx.beginPath();
+        ctx.rect(250, 150, 200, 200)
+        ctx.fillStyle = "#00cc00"
+        ctx.fill()
+        ctx.stroke()
+        ctx.closePath()
+
+
+        //Det tredje skal fylles med rød farge og tegnes i nederste høyre hjørne
+        ctx.beginPath()
+        ctx.rect(400, 400,200, 200)
+        ctx.fillStyle = "00cc00"
+        ctx.fill()
+        ctx.stroke()
+        ctx.closePath()
+
+    </script>
+</body>
+</html>

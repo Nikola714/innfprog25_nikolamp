@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 1: Krysset</title>
+</head>
+<body>
+    <canvas id="kors"></canvas>
+
+    <script>
+        const canvas = document.getElementById("kors")
+
+        canvas.width = 500;
+        canvas.height = 500;     
+
+        const ctx = canvas.getContext("2d")
+
+        ctx.moveTo(0, 0) //linje starter fra x.akse = 0 og y-akse = 0
+        ctx.lineTo(500, 500) //linje går helt til x-akse = 500 og y-akse = 500
+        ctx.lineWidth = 20; //bredd for linje
+
+        ctx.moveTo(500, 0)
+        ctx.lineTo(0, 500)
+
+        ctx.stroke() //tegn linje
+    </script>
+    
+</body>
+</html>

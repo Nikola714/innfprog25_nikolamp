@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3: Klokka</title>
+</head>
+<body>
+    <canvas id="clock"></canvas>
+
+    <script>
+        const canvas = document.getElementById("clock")
+        const ctx = canvas.getContext("2d")
+
+        canvas.width = 700;
+        canvas.height = 700;
+
+    //Klokke som fylle hele canvaset
+        // En sirkel, som utgjør rammen for klokken
+        ctx.beginPath()
+        ctx.arc(340, 350, 300, 0, 2*Math.PI)
+        ctx.lineWidth = 10
+        ctx.stroke()
+        ctx.closePath()
+
+    // To streker, en lang og en kort, som utgjør viserne, klokka er 15:40
+        //sirkel inn i sirkel
+        ctx.beginPath()
+        ctx.arc(330,350,20, 0, 2*Math.PI)
+        ctx.fillStyle = "#000000"
+        ctx.fill()
+        ctx.lineWidth = 2
+        ctx.stroke()
+        ctx.closePath()
+    
+        //lang stroke
+        ctx.beginPath()
+        ctx.moveTo(330, 350)
+        ctx.lineTo(150, 500)
+        ctx.stroke()
+        ctx.closePath()
+
+        //kort stroke
+        ctx.beginPath()
+        ctx.moveTo(330, 350)
+        ctx.lineTo(500, 400)
+        ctx.stroke()
+        ctx.closePath()
+
+
+        // 12 siffer, plassert korrekt lang klokkeranden
+    </script>
+</body>
+</html>
