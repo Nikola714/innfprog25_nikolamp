@@ -130,6 +130,27 @@
         epost: "rikard.o.eriksson@hiof.no",
         kursansvar: ["Ledelse og organisering av offentlig sektor", "Foto- og filmanalyse", "Etnografi"]
     }, 
+    //3 vaktmester 
+    {
+        navn: "Per Johansen",
+        stilling: stillinger[3],
+        kontor: "V001",
+        epost: "p.johansen@hiof.no",
+        kursansvar: ["Ingen kursansvar"]
+    },     {
+        navn: "Daniela Lund",
+        stilling: stillinger[3],
+        kontor: "V002",
+        epost: "danielalund@hiof.no",
+        kursansvar: ["Ingen kursansvar"]
+    },     {
+        navn: "Daniel Hansen",
+        stilling: stillinger[3],
+        kontor: "V003",
+        epost: "hansendaniel@hiof.no",
+        kursansvar: ["Ingen kursansvar"]
+    }, 
+
 
 ]
 
