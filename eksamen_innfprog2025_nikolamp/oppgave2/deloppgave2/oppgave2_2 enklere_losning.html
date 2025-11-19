@@ -34,43 +34,61 @@
 
         start();
 
+        
+
         //Denne koden regner ut gjennomsnittsalderen til en gruppe personer.
-        function startProgram() {
+
+        //KODE SOM JEG FIKK
+        // function startProgram() {
+        //     let personer = [
+        //         { navn: "Ola", alder: 24 },
+        //         { navn: "Kari", alder: 32 },
+        //         { navn: "Per", alder: 29 },
+        //         { navn: "Anne", alder: 41 }
+        //     ];
+
+        //     function hentAldre(liste) {
+        //         let alderArray = [];
+        //         for (let i = 0; i < liste.length; i++) {
+        //             let person = liste[i];
+        //             alderArray.push(person.alder);
+        //         }
+        //         return alderArray;
+        //     }
+
+        //     function regnUtGjennomsnitt(alderArray) {
+        //         let sum = 0;
+        //         for (let i = 0; i < alderArray.length; i++) {
+        //             sum = sum + alderArray[i];
+        //         }
+        //         let gjennomsnitt = sum / alderArray.length;
+        //         return gjennomsnitt;
+        //     }
+
+        //     function visResultat() {
+        //         let alderArray = hentAldre(personer);
+        //         let gjennomsnitt = regnUtGjennomsnitt(alderArray);
+        //         console.log("Gjennomsnittsalderen er " + gjennomsnitt);
+        //     }
+
+        //     visResultat();
+        // }
+
+        // startProgram();
+
+
+
+        //ENKLERE LØSNING FOR Å FÅ GJENNOMSNITT 
             let personer = [
                 { navn: "Ola", alder: 24 },
                 { navn: "Kari", alder: 32 },
                 { navn: "Per", alder: 29 },
                 { navn: "Anne", alder: 41 }
             ];
-
-            function hentAldre(liste) {
-                let alderArray = [];
-                for (let i = 0; i < liste.length; i++) {
-                    let person = liste[i];
-                    alderArray.push(person.alder);
-                }
-                return alderArray;
-            }
-
-            function regnUtGjennomsnitt(alderArray) {
-                let sum = 0;
-                for (let i = 0; i < alderArray.length; i++) {
-                    sum = sum + alderArray[i];
-                }
-                let gjennomsnitt = sum / alderArray.length;
-                return gjennomsnitt;
-            }
-
-            function visResultat() {
-                let alderArray = hentAldre(personer);
-                let gjennomsnitt = regnUtGjennomsnitt(alderArray);
-                console.log("Gjennomsnittsalderen er " + gjennomsnitt);
-            }
-
-            visResultat();
-        }
-
-        startProgram();
+            const sum_av_alder = personer[0].alder + personer[1].alder + personer[2].alder + personer[3].alder
+            const gjennomsnittsalderen = sum_av_alder / 4
+            console.log("Gjennomsnittsalderen av fire person er " + gjennomsnittsalderen)
+           
     </script>
 </body>
 </html>
