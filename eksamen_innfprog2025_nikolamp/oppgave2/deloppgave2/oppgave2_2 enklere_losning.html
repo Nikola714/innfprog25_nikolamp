@@ -8,31 +8,66 @@
 <body>
     <script>
         //Denne koden finner det lengste ordet i en liste med ord.
-        function start() {
-            let ordListe = ["kode", "programmering", "design", "data", "variabel"];
+        //KODE SOM JEG FIKK
+        // function start() {
+        //     let ordListe = ["kode", "programmering", "design", "data", "variabel"];
 
-            function finnLengsteOrd(liste) {
-                let lengste = "";
-                for (let i = 0; i < liste.length; i++) {
-                    let ord = liste[i];
-                    if (ord.length > lengste.length) {
-                        lengste = ord;
-                    } else {
-                        // gjør ingenting
-                    }
-                }
-                return lengste;
-            }
+        //     function finnLengsteOrd(liste) {
+        //         let lengste = "";
+        //         for (let i = 0; i < liste.length; i++) {
+        //             let ord = liste[i];
+        //             if (ord.length > lengste.length) {
+        //                 lengste = ord;
+        //             } else {
+        //                 // gjør ingenting
+        //             }
+        //         }
+        //         return lengste;
+        //     }
 
-            function skrivUtResultat() {
-                let resultat = finnLengsteOrd(ordListe);
-                console.log("Det lengste ordet i listen er: " + resultat);
-            }
+        //     function skrivUtResultat() {
+        //         let resultat = finnLengsteOrd(ordListe);
+        //         console.log("Det lengste ordet i listen er: " + resultat);
+        //     }
 
-            skrivUtResultat();
-        }
+        //     skrivUtResultat();
+        // }
 
-        start();
+        // start();
+
+
+        //ENKLERE LØSNING 
+
+        let ordListe = ["kode", "programmering", "design", "data", "variabel"];
+
+        //henete elementer fra array og ta de ut fra array
+            ordListe.map((hent) => {
+                console.log(hent)
+            })
+
+        let fralengste = ordListe.sort((a,b) => b.length - a.length)
+
+        //Sortering for å få array med elementer som starter fra lengst ord til kortest ord
+        console.log(lengde)
+        
+        
+
+        //TEST SOM FUNGER IKKE
+        // var utskrift = ""
+
+        // for(i = 0; i < ordListe.length; i++){
+        //     const antallBokstaver = ordListe.filter((antall) => i < ordListe.length)
+        //     if(antallBokstaver === true){
+        //         console.log("ja")
+        //     }
+        // }
+        // console.log(utskrift)
+
+        // console.log(ordListe.length)
+        // console.log(i)
+
+        // console.log(antallBokstaver)
+
 
         
 
@@ -85,7 +120,11 @@
                 { navn: "Per", alder: 29 },
                 { navn: "Anne", alder: 41 }
             ];
+
+            //metode for å beregne gjennomsnitt 
+            //sumere alle verdi
             const sum_av_alder = personer[0].alder + personer[1].alder + personer[2].alder + personer[3].alder
+            //delle sum på antall elementer
             const gjennomsnittsalderen = sum_av_alder / 4
             console.log("Gjennomsnittsalderen av fire person er " + gjennomsnittsalderen)
            
