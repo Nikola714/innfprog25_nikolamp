@@ -40,14 +40,17 @@
 
         let ordListe = ["kode", "programmering", "design", "data", "variabel"];
 
-        //sortering for ord som er lengst ved å bruke lenght metode som skal ta lengde for hvert ord, dvs. fra lengst til kortest 
-        let fralengste = ordListe.sort((a,b) => b.length - a.length)
-        //besteme en variabel som skal skrive ut den første element fra array, som jeg har bestemt over, den første element vil ære den som er lengst
-        let lengst = ordListe[0]
+        //sortere elementer fra array ved å bruke metode .sort(),
+            //.lenght for at funskjon skal få med seg hvor mange bokstaver er i hvert orde i den array
+            //arrow-funkjson med to parameter for å bestemme sorteringsvei 
+        ordListe.sort((kortest, lengst) => lengst.length - kortest.length)
 
+        //besteme en variabel som skal skrive ut den første element fra array, som jeg har bestemt over, den første element vil ære den som er lengst
+        let lengstOrd = ordListe[0]
+6
         //Sortering for å få array med elementer som starter fra lengst ord til kortest ord
         // console.log(fralengste)
-        console.log(`Den lengste ordet i listen er : ` + lengst)
+        console.log(`Den lengste ordet i listen er : ` + lengstOrd)
         
 
 
