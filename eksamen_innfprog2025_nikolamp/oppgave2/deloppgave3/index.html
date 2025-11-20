@@ -28,6 +28,9 @@
         <li>Kommunikasjonsdesign</li>
     </ul>
 
+    <!--legge til kilde for jquery bibliotek og sørge for at ingen kan manipulere de ressuser, og i tilleg sørge for at brukeren informasjon skal ikke bli sendt og lagret-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     <script>
         $('li:odd').css('background-color', '#d3d3d3').height(50);
         $('li').on('click', function() {
