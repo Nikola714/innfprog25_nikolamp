@@ -47,6 +47,11 @@
     </section>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+                                                            <!--integrity="sha256-…" = beskytter deg mot at eksterne ressurser blir manipulert-->
+                                                            <!--crossorigin="anonymous" 
+                                                                * Ingen cookies eller brukerinfo sendes med forespørselen.
+                                                                * Ressursen må kunne hentes uten godkjenning.
+                                                                * Det gjør at SRI fungerer riktig når ressursen lastes fra et annet domene.-->
     <script>
         $(document).ready(() => {
 
