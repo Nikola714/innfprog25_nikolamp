@@ -32,10 +32,21 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <script>
-        $('li:odd').css('background-color', '#d3d3d3').height(50);
-        $('li').on('click', function() {
-            alert($(this).text());
-        }  );
+        //KODE SOM JEG FIKK
+        // $('li:odd').css('background-color', '#d3d3d3').height(50);
+        // $('li').on('click', function() {
+        //     alert($(this).text());
+        // }  );
+
+        //MIN LØSNING MED JQUERY KODE
+        $(document).ready(function(){
+            $("ul li:odd").css("background-color", "#cccccc");
+            $("ul li:odd").css("height", "50px")
+        },
+        $("ul li").on("click",(function(){
+            alert($(this).text())
+        })
+        ))
     </script>
 </body>
 </html>
