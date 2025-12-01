@@ -1,5 +1,5 @@
         const stillinger = ["Professor", "Dekan", "Rektor", "Vaktmester", "Lektor"]
-        const ansatt = [
+        export const ansatt = [
     //1 rektor
     {
         navn: "Lars-Petter Jelsness-Jørgensen",
