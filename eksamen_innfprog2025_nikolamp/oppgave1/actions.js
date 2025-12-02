@@ -8,15 +8,18 @@ function ansatteIndex(){
 
     //For løkke for å få indexer for hvert ansatt
     for(let index = 0; index < ansatt.length; index++){
-        ansatter.innerHTML += `
-        <li>
-            ${ansatt[index].navn}
-            <strong>Stilling: </strong>${ansatt[index].stilling}<br>
-            <strong>Kontor: </strong>${ansatt[index].kontor}<br>
-            <strong>E-post: </strong>${ansatt[index].epost}<br>
-            ${ansatt[index].kursansvar}
-            
-        </li>`
+        function ansattListe(){
+            ansatter.innerHTML += `
+            <li>
+                ${ansatt[index].navn}
+                <strong>Stilling: </strong>${ansatt[index].stilling}<br>
+                <strong>Kontor: </strong>${ansatt[index].kontor}<br>
+                <strong>E-post: </strong>${ansatt[index].epost}<br>
+                ${ansatt[index].kursansvar}
+                
+            </li>`
+        }
+        ansattListe()
 
         // console.log(index)
     }
