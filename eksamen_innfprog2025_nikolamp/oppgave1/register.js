@@ -154,4 +154,4 @@
 
 ]
 
-console.log(ansatt)
+// console.log(ansatt)
