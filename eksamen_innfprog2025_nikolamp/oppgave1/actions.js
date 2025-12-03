@@ -46,8 +46,25 @@ function visStilling(stilling){
         }
     })
 }
-const btnProfessor = document.getElementById("professor");
+//knappen for alle ansatte
+const btnAlle = document.getElementById("alleAnsatte");
 
+btnAlle.addEventListener("click", () => {
+    ansatteIndex();
+});
+
+//knappen for alle underviserne (dvs. lektorer og professorer)
+const btnUnderviserne = document.getElementById("underviserne");
+
+btnUnderviserne.addEventListener("click", () => {
+    visStilling("Lektor")
+    visStilling("Professor");
+});
+
+
+
+//Knappen for professor
+const btnProfessor = document.getElementById("professor");
 //Når noen klikker på knappen "Professor"...
 btnProfessor.addEventListener("click", () => {
     //... får man liste bare med de ansatte med professor stilling
