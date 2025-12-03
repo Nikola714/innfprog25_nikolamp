@@ -8,6 +8,7 @@ function ansatteIndex(){
 
     //For løkke for å få indexer for hvert ansatt
     for(let index = 0; index < ansatt.length; index++){
+        //Andre funksjon lister ut alle ansatte og bruke den første funksjon for å strukturere den html strukturen 
         function ansattListe(){
             ansatter.innerHTML += `
             <li>
@@ -20,20 +21,30 @@ function ansatteIndex(){
             </li>`
         }
         ansattListe()
-
-        // console.log(index)
     }
-    //Skrive ut datasett med alle ansatte
-    // console.log(ansatt);
 }
 //kjøre funksjon
 ansatteIndex()
 
-
-// //Andre funksjon lister ut alle ansatte og bruke den første funksjon for å strukturere den html strukturen 
-// function listerUt(){
-//     //skrive ut informasjon for hvert ansatt som tilhører index
-//     console.log(ansatt[index]);
+//Tredje funksjon tar imot en parameter som innsette stilling og filtrere alle ansatte på den innsette parameter, dvs. hvis noen velger dekan i meny kommer kun vare ansatte med stillinger dekan
+// function filterStilling() {
+//     const professor = document.getElementById("professor")
+//     const professorFilter = ansatt.filter(
+//         (professorAnsatt) => professorAnsatt.stilling === "Professor"
+//     )
+//     if(professor === "click"){
+//         professorFilter
+//     }
 
 // }
-// listerUt()
+// filterStilling()  
+
+const btn = document.getElementById("professor")
+btn.addEventListener("click", printMsg)
+
+function printMsg() {
+    const professorStilling = ansatt.filter(
+        (person) => person.stilling === "Professor"
+    )
+    console.log(professorStilling)
+}
