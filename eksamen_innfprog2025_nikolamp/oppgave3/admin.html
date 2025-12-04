@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administarsjon | Rediger ansatte i Høgskolen i Østfold og</title>
+</head>
+<body>
+    <h1>Høgskolen JS</h1>
+
+    <h2>Legg til ansatt</h2>
+    <label>
+        Fornavn
+        <input type="text" max="40" required>
+    </label>
+    
+    <label>
+        Etternavn
+        <input type="text" max="100" required>
+    </label>
+    
+    <label>
+        E-post
+        <input type="email" max="100" required>
+    </label>
+    
+    <label>
+        Kontor
+        <input max="30" required>
+    </label> 
+    
+    <label>
+        Stilling
+        <input list="stilling" max="30" required>
+        <datalist id="stilling">
+            <option value="Professor"></option>
+            <option value="Lektor"></option>
+            <option value="Dekan"></option>
+            <option value="Rektor"></option>
+            <option value="Vaktmester"></option>
+        </datalist>
+    </label>    
+    
+    <label>
+        Kurs
+        <input type="text" max="300" required>
+    </label>
+
+    <button type="submit">Legg til ansatt</button>
+    
+    <h2>Ansatte</h2>
+    <article>
+        <ul id="personer"></ul>
+        <button>Slett ansatt</button>
+    </article>
+
+    <section>
+        <h2>Kursoversikt</h2>
+        <ul id="kursoversiktListe"></ul>
+    </section>
+
+
+    <!-- <script src="register.js"></script> -->
+    <script  type="module"  src="../oppgave1/actions.js"></script>
+</body>
+</html>

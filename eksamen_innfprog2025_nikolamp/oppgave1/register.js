@@ -57,7 +57,7 @@
         stilling: stillinger[4],
         kontor: "FU1-064",
         epost: "stein.a.berggren@hiof.no",
-        kursansvar: ["Matematikk- og matematikkdidaktiske emner i grunnskolelærerutdanningen for 1-7 trinn", "Matematikk- og matematikkdidaktiske emner på etter- og videreutdanning."]
+        kursansvar: ["Matematikk- og matematikkdidaktiske emner i grunnskolelærerutdanningen for 1-7 trinn", "Matematikk- og matematikkdidaktiske emner på etter- og videreutdanning"]
     },
     {
         navn: "Christian Bjørn Bjerke",
@@ -136,19 +136,20 @@
         stilling: stillinger[3],
         kontor: "V001",
         epost: "p.johansen@hiof.no",
-        kursansvar: ["Ingen kursansvar"]
-    },     {
+        kursansvar: "Ingen kursansvar"
+    },     
+    {
         navn: "Daniela Lund",
         stilling: stillinger[3],
         kontor: "V002",
         epost: "danielalund@hiof.no",
-        kursansvar: ["Ingen kursansvar"]
+        kursansvar: "Ingen kursansvar"
     },     {
         navn: "Daniel Hansen",
         stilling: stillinger[3],
         kontor: "V003",
         epost: "hansendaniel@hiof.no",
-        kursansvar: ["Ingen kursansvar"]
+        kursansvar: "Ingen kursansvar"
     }, 
 
 

@@ -28,8 +28,6 @@ ansatteIndex()
 
 //Tredje funksjon tar imot en parameter som innsette stilling og filtrere alle ansatte på den innsette parameter, dvs. hvis noen velger dekan i meny kommer kun vare ansatte med stillinger dekan
 
-
-
 function visStilling(stilling){
     ansatter.innerHTML= ""
     ansatt.forEach(ansatt => {
@@ -46,13 +44,23 @@ function visStilling(stilling){
         }
     })
 }
-const btnProfessor = document.getElementById("professor");
 
+//Knappen for alle ansatte
+const btnDekanAlle = document.getElementById("alleAnsatte");
+
+btnDekanAlle.addEventListener("click", () => {
+    ansatteIndex();
+});
+
+
+//Knappen for professor
+const btnProfessor = document.getElementById("professor");
 //Når noen klikker på knappen "Professor"...
 btnProfessor.addEventListener("click", () => {
     //... får man liste bare med de ansatte med professor stilling
     visStilling("Professor");
 });
+
 
 //Knappen for dekan
 const btnDekan = document.getElementById("dekan");
@@ -82,44 +90,66 @@ btnLektor.addEventListener("click", () => {
     visStilling("Lektor");
 });
 
+//Fjere funksjon
+function listUTStilling() {
+    const kursoversiktListe = document.getElementById("kursoversiktListe");
+    kursoversiktListe.innerHTML = "";
+
+    ansatt.forEach(a => {
+        if (a.kursansvar !== "Ingen kursansvar") {
+            kursoversiktListe.innerHTML += `<li>${a.kursansvar.join("<li>")}</li>`;
+        } 
+    });
+}
+listUTStilling();
 
 
+//Femte funksjon
+function underviserne(stilling1, stilling2){
+    ansatter.innerHTML= ""
+    ansatt.forEach(ansatt => {
+        if(ansatt.stilling === stilling1 || ansatt.stilling === stilling2){
+            ansatter.innerHTML += `
+                <li>
+                    ${ansatt.navn}
+                    <strong>Stilling: </strong>${ansatt.stilling}<br>
+                    <strong>Kontor: </strong>${ansatt.kontor}<br>
+                    <strong>E-post: </strong>${ansatt.epost}<br>
+                    ${ansatt.kursansvar}
+                    
+                </li>`
+        }
+    })
+}
 
+//Knappen for underviserne
+const btnUnderviserne = document.getElementById("underviserne");
 
+btnUnderviserne.addEventListener("click", () => {
+    underviserne("Professor", "Lektor")
+});
 
+//Sjette funskjon
+function administartorene(admin1, admin2, admin3){
+    ansatter.innerHTML= ""
+    ansatt.forEach(ansatt => {
+        if(ansatt.stilling === admin1 || ansatt.stilling === admin2 || ansatt.stilling === admin3){
+            ansatter.innerHTML += `
+                <li>
+                    ${ansatt.navn}
+                    <strong>Stilling: </strong>${ansatt.stilling}<br>
+                    <strong>Kontor: </strong>${ansatt.kontor}<br>
+                    <strong>E-post: </strong>${ansatt.epost}<br>
+                    ${ansatt.kursansvar}
+                    
+                </li>`
+        }
+    })
+}
 
+//Knappen for administartorene
+const btnAdmin = document.getElementById("administrasjon");
 
-
-
-
-
-
-
-
-
-
-
-
-
-//Tredje funksjon tar imot en parameter som innsette stilling og filtrere alle ansatte på den innsette parameter, dvs. hvis noen velger dekan i meny kommer kun vare ansatte med stillinger dekan
-// function filterStilling() {
-//     const professor = document.getElementById("professor")
-//     const professorFilter = ansatt.filter(
-//         (professorAnsatt) => professorAnsatt.stilling === "Professor"
-//     )
-//     if(professor === "click"){
-//         professorFilter
-//     }
-
-// }
-// filterStilling()  
-
-// const btn = document.getElementById("professor")
-// btn.addEventListener("click", printMsg)
-
-// function printMsg() {
-//     const professorStilling = ansatt.filter(
-//         (person) => person.stilling === "Professor"
-//     )
-//     console.log(professorStilling)
-// }
+btnAdmin.addEventListener("click", () => {
+    administartorene("Rektor", "Dekan", "Vaktmester")
+});
