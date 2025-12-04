@@ -1,70 +1,125 @@
-import { ansatt } from './register.js'; 
+import { ansatt } from './register.js';
 
-let ansatter = document.getElementById("personer");
+let ansatter = document.getElementById("personer")
 
-// 1️⃣ Lager HTML for én ansatt
-function ansattKort(index){
-    return `
-    <li>
-        ${ansatt[index].navn}
-        <strong>Stilling: </strong>${ansatt[index].stilling}<br>
-        <strong>Kontor: </strong>${ansatt[index].kontor}<br>
-        <strong>E-post: </strong>${ansatt[index].epost}<br>
-        ${ansatt[index].kursansvar || ""}
-    </li>`;
-}
-
-// 2️⃣ Viser alle ansatte
+//Første funskjon til å indexere og skrive ut informasjon om ansatter
 function ansatteIndex(){
-    ansatter.innerHTML = "";
-    for(let i = 0; i < ansatt.length; i++){
-        ansatter.innerHTML += ansattKort(i);
-    }
-}
 
-// 3️⃣ Viser ansatte basert på stilling
-function visStilling(stilling){
-    ansatter.innerHTML = "";
 
-    for(let i = 0; i < ansatt.length; i++){
-        if(stilling === "underviser"){
-            if(ansatt[i].stilling === "Professor" || ansatt[i].stilling === "Lektor"){
-                ansatter.innerHTML += ansattKort(i);
-            }
-        } else if(ansatt[i].stilling === stilling){
-            ansatter.innerHTML += ansattKort(i);
+    //For løkke for å få indexer for hvert ansatt
+    for(let index = 0; index < ansatt.length; index++){
+        //Andre funksjon lister ut alle ansatte og bruke den første funksjon for å strukturere den html strukturen 
+        function ansattListe(){
+            ansatter.innerHTML += `
+            <li>
+                ${ansatt[index].navn}
+                <strong>Stilling: </strong>${ansatt[index].stilling}<br>
+                <strong>Kontor: </strong>${ansatt[index].kontor}<br>
+                <strong>E-post: </strong>${ansatt[index].epost}<br>
+                ${ansatt[index].kursansvar}
+                
+            </li>`
         }
+        ansattListe()
     }
 }
+//kjøre funksjon
+ansatteIndex()
 
-// ✅ Knapper
-document.getElementById("alleAnsatte").addEventListener("click", () => {
-    ansatteIndex();
-});
+//Tredje funksjon tar imot en parameter som innsette stilling og filtrere alle ansatte på den innsette parameter, dvs. hvis noen velger dekan i meny kommer kun vare ansatte med stillinger dekan
 
-document.getElementById("underviserne").addEventListener("click", () => {
-    visStilling("underviser");
-});
 
-document.getElementById("professor").addEventListener("click", () => {
+
+function visStilling(stilling){
+    ansatter.innerHTML= ""
+    ansatt.forEach(ansatt => {
+        if(ansatt.stilling === stilling){
+            ansatter.innerHTML += `
+                <li>
+                    ${ansatt.navn}
+                    <strong>Stilling: </strong>${ansatt.stilling}<br>
+                    <strong>Kontor: </strong>${ansatt.kontor}<br>
+                    <strong>E-post: </strong>${ansatt.epost}<br>
+                    ${ansatt.kursansvar}
+                    
+                </li>`
+        }
+    })
+}
+const btnProfessor = document.getElementById("professor");
+
+//Når noen klikker på knappen "Professor"...
+btnProfessor.addEventListener("click", () => {
+    //... får man liste bare med de ansatte med professor stilling
     visStilling("Professor");
 });
 
-document.getElementById("lektor").addEventListener("click", () => {
-    visStilling("Lektor");
-});
+//Knappen for dekan
+const btnDekan = document.getElementById("dekan");
 
-document.getElementById("dekan").addEventListener("click", () => {
+btnDekan.addEventListener("click", () => {
     visStilling("Dekan");
 });
 
-document.getElementById("rektor").addEventListener("click", () => {
+//Knappen for rektor
+const btnRektor = document.getElementById("rektor");
+
+btnRektor.addEventListener("click", () => {
     visStilling("Rektor");
 });
 
-document.getElementById("vaktmester").addEventListener("click", () => {
+//Knappen for vaktmester
+const btnVaktmester = document.getElementById("vaktmester");
+
+btnVaktmester.addEventListener("click", () => {
     visStilling("Vaktmester");
 });
 
-// ✅ Start med å vise alle ansatte
-ansatteIndex();
+//Knappen for lektor
+const btnLektor = document.getElementById("lektor");
+
+btnLektor.addEventListener("click", () => {
+    visStilling("Lektor");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Tredje funksjon tar imot en parameter som innsette stilling og filtrere alle ansatte på den innsette parameter, dvs. hvis noen velger dekan i meny kommer kun vare ansatte med stillinger dekan
+// function filterStilling() {
+//     const professor = document.getElementById("professor")
+//     const professorFilter = ansatt.filter(
+//         (professorAnsatt) => professorAnsatt.stilling === "Professor"
+//     )
+//     if(professor === "click"){
+//         professorFilter
+//     }
+
+// }
+// filterStilling()  
+
+// const btn = document.getElementById("professor")
+// btn.addEventListener("click", printMsg)
+
+// function printMsg() {
+//     const professorStilling = ansatt.filter(
+//         (person) => person.stilling === "Professor"
+//     )
+//     console.log(professorStilling)
+// }
