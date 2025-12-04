@@ -11,27 +11,27 @@
     <h2>Legg til ansatt</h2>
     <label>
         Fornavn
-        <input type="text" required>
+        <input id="fornavn" type="text" required>
     </label>
     
     <label>
         Etternavn
-        <input type="text" required>
+        <input id="etternavn" type="text" required>
     </label>
     
     <label>
         E-post
-        <input type="email" required>
+        <input id="mail" type="email" required>
     </label>
     
     <label>
         Kontor
-        <input required>
+        <input id="kontor" required>
     </label> 
     
     <label>
         Stilling
-        <input  type="text" list="stilling" required>
+        <input id="stilling" type="text" list="stilling" required>
         <datalist id="stilling">
             <option value="Professor"></option>
             <option value="Lektor"></option>
@@ -43,22 +43,16 @@
     
     <label>
         Kurs
-        <input type="text"  required>
+        <input id="kurs" type="text"  required>
     </label>
 
-    <button type="submit">Legg til ansatt</button>
+    <button id="leggKnapp" type="submit">Legg til ansatt</button>
     
     <h2>Ansatte</h2>
     <article>
         <ul id="personer"></ul>
         <button>Slett ansatt</button>
     </article>
-
-    <section>
-        <h2>Kursoversikt</h2>
-        <ul id="kursoversiktListe"></ul>
-    </section>
-
 
     <!-- <script src="register.js"></script> -->
     <script  type="module"  src="../oppgave1/actions.js"></script>

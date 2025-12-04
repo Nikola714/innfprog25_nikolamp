@@ -46,61 +46,71 @@ function visStilling(stilling){
 }
 
 //Knappen for alle ansatte
-const btnDekanAlle = document.getElementById("alleAnsatte");
+const btnAlle = document.getElementById("alleAnsatte");
+if (btnAlle) {
+    btnAlle.addEventListener("click", () => {
+        ansatteIndex();
+    });
+}
 
-btnDekanAlle.addEventListener("click", () => {
-    ansatteIndex();
-});
+
 
 
 //Knappen for professor
 const btnProfessor = document.getElementById("professor");
-//Når noen klikker på knappen "Professor"...
-btnProfessor.addEventListener("click", () => {
+//Sjekker om knappen viness. Hvis ja: Når noen klikker på knappen "Professor"...
+if(btnProfessor){
+    btnProfessor.addEventListener("click", () => {
     //... får man liste bare med de ansatte med professor stilling
     visStilling("Professor");
 });
-
+}
 
 //Knappen for dekan
 const btnDekan = document.getElementById("dekan");
-
-btnDekan.addEventListener("click", () => {
-    visStilling("Dekan");
-});
+if(btnDekan){
+    btnDekan.addEventListener("click", () => {
+        visStilling("Dekan");
+    });
+}
 
 //Knappen for rektor
 const btnRektor = document.getElementById("rektor");
-
-btnRektor.addEventListener("click", () => {
-    visStilling("Rektor");
-});
+if(btnRektor){
+    btnRektor.addEventListener("click", () => {
+        visStilling("Rektor");
+    });
+}
 
 //Knappen for vaktmester
 const btnVaktmester = document.getElementById("vaktmester");
-
-btnVaktmester.addEventListener("click", () => {
-    visStilling("Vaktmester");
-});
+if(btnVaktmester){
+    btnVaktmester.addEventListener("click", () => {
+        visStilling("Vaktmester");
+    });
+}
 
 //Knappen for lektor
 const btnLektor = document.getElementById("lektor");
-
-btnLektor.addEventListener("click", () => {
-    visStilling("Lektor");
-});
+if(btnLektor){
+    btnLektor.addEventListener("click", () => {
+        visStilling("Lektor");
+    });
+}
 
 //Fjere funksjon
 function listUTStilling() {
     const kursoversiktListe = document.getElementById("kursoversiktListe");
-    kursoversiktListe.innerHTML = "";
-
-    ansatt.forEach(a => {
-        if (a.kursansvar !== "Ingen kursansvar") {
-            kursoversiktListe.innerHTML += `<li>${a.kursansvar.join("<li>")}</li>`;
-        } 
-    });
-}
+    if(kursoversiktListe){
+        kursoversiktListe.innerHTML = "";
+    
+        ansatt.forEach(a => {
+            if (a.kursansvar !== "Ingen kursansvar") {
+                kursoversiktListe.innerHTML += `<li>${a.kursansvar.join("<li>")}</li>`;
+            } 
+        });
+    }
+    }
 listUTStilling();
 
 
@@ -124,10 +134,11 @@ function underviserne(stilling1, stilling2){
 
 //Knappen for underviserne
 const btnUnderviserne = document.getElementById("underviserne");
-
-btnUnderviserne.addEventListener("click", () => {
-    underviserne("Professor", "Lektor")
-});
+if(btnUnderviserne){
+    btnUnderviserne.addEventListener("click", () => {
+        underviserne("Professor", "Lektor")
+    });
+}
 
 //Sjette funskjon
 function administartorene(admin1, admin2, admin3){
@@ -149,7 +160,8 @@ function administartorene(admin1, admin2, admin3){
 
 //Knappen for administartorene
 const btnAdmin = document.getElementById("administrasjon");
-
-btnAdmin.addEventListener("click", () => {
-    administartorene("Rektor", "Dekan", "Vaktmester")
-});
+if(btnAdmin){
+    btnAdmin.addEventListener("click", () => {
+        administartorene("Rektor", "Dekan", "Vaktmester")
+    }); 
+}
