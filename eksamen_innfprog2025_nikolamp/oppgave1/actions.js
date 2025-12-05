@@ -168,36 +168,63 @@ if(btnAdmin){
 
 
 //Syende funksjon
-function nyAnsatt(navn, etternavn, mail, kontor, stilling, kurs){
-    //fornavn
+function nyAnsatt(){
+    // //fornavn
+    // let fornavn = document.getElementById("fornavn").value
+    // if(fornavn){
+    //     if(fornavn === true){
+    //         navn += fornavn && ansatt.navn.push(fornavn)
+    //     }
+    // }
+
+    // //etternavn
+    // let lastname = document.getElementById("etternavn").value
+    // if(lastname){
+    //     if(lastname === true){
+    //         etternavn += lastname && ansatt.navn.push(lastname)
+    //     }
+    // }
+
+
     let fornavn = document.getElementById("fornavn").value
-    if(fornavn){
-        if(fornavn === true){
-            navn += fornavn && ansatt.navn.push(fornavn)
-        }
-    }
-
-    //etternavn
     let lastname = document.getElementById("etternavn").value
-    if(lastname){
-        if(lastname === true){
-            etternavn += lastname && ansatt.navn.push(lastname)
-        }
-    }
-
+    let kontor = document.getElementById("kontor").value
     let epost = document.getElementById("mail").value
-    if(epost){
-        if(epost === true){
-            mail += epost && ansatt.epost.push(epost)
+   
+    let kurs = document.getElementById("kurs").value
+
+    if(fornavn || lastname || epost){
+        if(!fornavn || !lastname ||!epost){
+            ansatt.navn.push(fornavn + "" + lastname) && ansatt.epost.push(epost)
+        }
+        ansatter.innerHTML += `
+                <li>
+                    <strong>Navn: </strong>${fornavn} ${lastname} <br>
+
+                    <strong>E-post: </strong>${epost}<br>
+                    
+                    
+                </li>`
+        
         }
     }
+    
+
+    // //epost
+    // let epost = document.getElementById("mail").value
+    // if(epost){
+    //     if(epost === true){
+    //         mail += epost && ansatt.epost.push(epost)
+    //     }
+    // }
 
 
-}
+    
+
 
 const btnNyAnsattt = document.getElementById("btnNyAnsattt")
 if(btnNyAnsattt){
     btnNyAnsattt.addEventListener("click", () => {
-        nyAnsatt(fornavn.value, lastname.value, epost, kontor, stilling, kurs)
+        nyAnsatt()
         })
 }
