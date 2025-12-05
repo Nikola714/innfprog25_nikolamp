@@ -1,6 +1,14 @@
+*{
+    margin: 0;
+}
+
 body{
-    background-color: #e6faff;
+    background-color: #e6ecff;
 }
 #overskrift{
-
+    background-color: #99b3ff;
+    padding: 2rem;
+    margin: 0;
+    color: #ffffff;
+    text-align: center;
 }
