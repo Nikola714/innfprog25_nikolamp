@@ -181,13 +181,12 @@ function nyAnsatt() {
     // HENTER KUN VALGT STLLING
     let stilling = document.getElementById("stilling").value;
 
-    // VALIDERING
     if (!fornavn || !lastname || !epost || !kontor || !kurs) {
         alert("Vennligst fyll ut alle felt.");
         return;
     }
 
-    // LEGG TIL ANSATT I LISTA
+    //legge ny ansatte i liste
     ansatter.innerHTML += `
         <li>
             <strong>Navn: </strong>${fornavn} ${lastname} <br>  
