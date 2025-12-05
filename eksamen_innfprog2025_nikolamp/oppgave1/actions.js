@@ -195,6 +195,8 @@ function nyAnsatt() {
             <strong>Stilling: </strong>${stilling}<br>
             <strong>Kursansvar: </strong>${kurs}<br>
         </li>`;
+
+    
 }
 
     

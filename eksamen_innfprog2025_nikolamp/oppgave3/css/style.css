@@ -12,3 +12,29 @@ body{
     color: #ffffff;
     text-align: center;
 }
+
+.leggTilSkjema{
+    display: flex;
+    padding: 2rem;
+    flex-wrap: wrap;
+    width: 50px;
+}
+
+.skjemaLabel{
+    padding: 1rem;
+}
+
+.skjemaInput{
+    padding: 1rem;
+}
+
+#stilling{
+    padding: 1rem;
+}
+
+#btnNyAnsattt{
+    padding: 1rem;
+    margin: 0rem 0rem 2rem 4.5rem;
+    background-color: #ccd9ff;
+    border-color: #2f5be2;
+}

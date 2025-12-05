@@ -10,43 +10,46 @@
     <h1 id="overskrift">Høgskolen JS</h1>
 
     <h2>Legg til ansatt</h2>
-    <label>
-        Fornavn
-        <input id="fornavn" type="text" placeholder="Fornavn" required>
-    </label>
+    <section class="leggTilSkjema">
+        <label class="skjemaLabel">
+            Fornavn
+            <input class="skjemaInput" id="fornavn" type="text" placeholder="Fornavn" required>
+        </label>
+        
+        <label class="skjemaLabel">
+            Etternavn
+            <input class="skjemaInput" id="etternavn" type="text" placeholder="Etternvan" required>
+        </label>
+        
+        <label class="skjemaLabel">
+            E-post
+            <input class="skjemaInput" id="mail" type="email" placeholder=" Epost" required>
+        </label>
+        
+        <label class="skjemaLabel">
+            Kontor
+            <input class="skjemaInput" id="kontor" placeholder="Kontor" required>
+        </label> 
+        
+        <label class="skjemaLabel">
+            Stilling
+            <select id="stilling">
+                <option value="Professor">Professor</option>
+                <option value="Dekan">Dekan</option>
+                <option value="Rektor">Rektor</option>
+                <option value="Vaktmester">Vaktmester</option>
+                <option value="Lektor">Lektor</option>
+            </select>
+        </label>    
+        
+        <label class="skjemaLabel">
+            Kurs
+            <input class="skjemaInput" id="kurs" type="text" placeholder="Kursansav" required>
+        </label>
+    </section>
     
-    <label>
-        Etternavn
-        <input id="etternavn" type="text" placeholder="Etternvan" required>
-    </label>
-    
-    <label>
-        E-post
-        <input id="mail" type="email" placeholder=" Epost" required>
-    </label>
-    
-    <label>
-        Kontor
-        <input id="kontor" placeholder="Kontor" required>
-    </label> 
-    
-    <label>
-        Stilling
-        <select id="stilling">
-            <option value="Professor">Professor</option>
-            <option value="Dekan">Dekan</option>
-            <option value="Rektor">Rektor</option>
-            <option value="Vaktmester">Vaktmester</option>
-            <option value="Lektor">Lektor</option>
-        </select>
-    </label>    
-    
-    <label>
-        Kurs
-        <input id="kurs" type="text" placeholder="Kursansav" required>
-    </label>
+        <button id="btnNyAnsattt" type="button">Legg til ansatt</button>
 
-    <button id="btnNyAnsattt" type="button">Legg til ansatt</button>
     
     <h2>Ansatte</h2>
     <article>
