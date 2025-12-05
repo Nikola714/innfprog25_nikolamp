@@ -31,14 +31,13 @@
     
     <label>
         Stilling
-        <input type="text" list="stilling" placeholder="Velg stilling" required>
-        <datalist id="stilling">
-            <option value="Professor"></option>
-            <option value="Lektor"></option>
-            <option value="Dekan"></option>
-            <option value="Rektor"></option>
-            <option value="Vaktmester"></option>
-        </datalist>
+        <select id="stilling">
+    <option value="Professor">Professor</option>
+    <option value="Dekan">Dekan</option>
+    <option value="Rektor">Rektor</option>
+    <option value="Vaktmester">Vaktmester</option>
+    <option value="Lektor">Lektor</option>
+</select>
     </label>    
     
     <label>
@@ -46,7 +45,7 @@
         <input id="kurs" type="text" placeholder="Kursansav" required>
     </label>
 
-    <button id="btnNyAnsattt" type="submit">Legg til ansatt</button>
+    <button id="btnNyAnsattt" type="button">Legg til ansatt</button>
     
     <h2>Ansatte</h2>
     <article>

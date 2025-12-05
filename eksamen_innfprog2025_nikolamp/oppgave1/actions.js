@@ -1,4 +1,6 @@
 import { ansatt } from './register.js';
+import { stillinger } from './register.js';
+
 
 let ansatter = document.getElementById("personer")
 
@@ -168,59 +170,35 @@ if(btnAdmin){
 
 
 //Syende funksjon
-function nyAnsatt(){
-    // //fornavn
-    // let fornavn = document.getElementById("fornavn").value
-    // if(fornavn){
-    //     if(fornavn === true){
-    //         navn += fornavn && ansatt.navn.push(fornavn)
-    //     }
-    // }
+function nyAnsatt() {
 
-    // //etternavn
-    // let lastname = document.getElementById("etternavn").value
-    // if(lastname){
-    //     if(lastname === true){
-    //         etternavn += lastname && ansatt.navn.push(lastname)
-    //     }
-    // }
+    let fornavn = document.getElementById("fornavn").value;
+    let lastname = document.getElementById("etternavn").value;
+    let kontor = document.getElementById("kontor").value;
+    let epost = document.getElementById("mail").value;
+    let kurs = document.getElementById("kurs").value;
 
+    // HENTER KUN VALGT STLLING
+    let stilling = document.getElementById("stilling").value;
 
-    let fornavn = document.getElementById("fornavn").value
-    let lastname = document.getElementById("etternavn").value
-    let kontor = document.getElementById("kontor").value
-    let epost = document.getElementById("mail").value
-   
-    let kurs = document.getElementById("kurs").value
-
-    if(fornavn || lastname || epost ||kontor){
-        if(!fornavn || !lastname ||!epost ||!kontor){
-            ansatt.navn.push(fornavn + "" + lastname) && ansatt.epost.push(epost) &&ansatt.kontor.push(kontor)
-        }
-        ansatter.innerHTML += `
-                <li>
-                    <strong>Navn: </strong>${fornavn} ${lastname} <br>
-                    <strong>Kontor: </strong>${kontor}<br>
-                    <strong>E-post: </strong>${epost}<br>
-                    
-                    
-                </li>`
-        
-        }
+    // VALIDERING
+    if (!fornavn || !lastname || !epost || !kontor || !kurs) {
+        alert("Vennligst fyll ut alle felt.");
+        return;
     }
+
+    // LEGG TIL ANSATT I LISTA
+    ansatter.innerHTML += `
+        <li>
+            <strong>Navn: </strong>${fornavn} ${lastname} <br>  
+            <strong>Kontor: </strong>${kontor}<br>
+            <strong>E-post: </strong>${epost}<br>
+            <strong>Stilling: </strong>${stilling}<br>
+            <strong>Kursansvar: </strong>${kurs}<br>
+        </li>`;
+}
+
     
-
-    // //epost
-    // let epost = document.getElementById("mail").value
-    // if(epost){
-    //     if(epost === true){
-    //         mail += epost && ansatt.epost.push(epost)
-    //     }
-    // }
-
-
-    
-
 
 const btnNyAnsattt = document.getElementById("btnNyAnsattt")
 if(btnNyAnsattt){
