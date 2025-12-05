@@ -193,14 +193,14 @@ function nyAnsatt(){
    
     let kurs = document.getElementById("kurs").value
 
-    if(fornavn || lastname || epost){
-        if(!fornavn || !lastname ||!epost){
-            ansatt.navn.push(fornavn + "" + lastname) && ansatt.epost.push(epost)
+    if(fornavn || lastname || epost ||kontor){
+        if(!fornavn || !lastname ||!epost ||!kontor){
+            ansatt.navn.push(fornavn + "" + lastname) && ansatt.epost.push(epost) &&ansatt.kontor.push(kontor)
         }
         ansatter.innerHTML += `
                 <li>
                     <strong>Navn: </strong>${fornavn} ${lastname} <br>
-
+                    <strong>Kontor: </strong>${kontor}<br>
                     <strong>E-post: </strong>${epost}<br>
                     
                     
