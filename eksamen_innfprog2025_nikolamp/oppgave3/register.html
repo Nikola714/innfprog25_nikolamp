@@ -8,24 +8,29 @@
 </head>
 <body>
     <h1 id="overskrift">Høgskolen JS</h1>
-    <button type="button" id="alleAnsatte">Vis alle ansatte</button>
-    <button type="button" id="underviserne">Vis alle underviserne</button>
-    <button type="button" id="administrasjon">Vis alle administrasjon</button>
+    <nav class="visKnapp">
+        <button class="menyKnapp" type="button" id="alleAnsatte">Vis alle ansatte</button>
+        <button class="menyKnapp" type="button" id="underviserne">Vis alle underviserne</button>
+        <button class="menyKnapp" type="button" id="administrasjon">Vis alle administrasjon</button>
+    </nav>
 
-    <p>Vis kun stilling: </p>
-    <button type="button" id="professor">Professsor</button>
-    <button type="button" id="dekan">Dekan</button>
-    <button type="button" id="rektor">Rektor</button>
-    <button type="button" id="vaktmester">Vaktmester</button>
-    <button type="button" id="lektor">Lektor</button>
-    
-    <h2>Ansatte</h2>
-    <section>
+    <nav class="stillingFilterKnapp">
+        <p id="menyTekst">Vis kun stilling: </p>
+        <button class="menyKnapp" type="button" id="professor">Professsor</button>
+        <button class="menyKnapp" type="button" id="dekan">Dekan</button>
+        <button class="menyKnapp" type="button" id="rektor">Rektor</button>
+        <button class="menyKnapp" type="button" id="vaktmester">Vaktmester</button>
+        <button class="menyKnapp" type="button" id="lektor">Lektor</button>
+        </nav>
+
+
+    <section class="ansatteOversiktSection">
+        <h2 id="ansatteOverskrift">Ansatte</h2>
         <ul id="personer"></ul>
     </section>
 
-    <section>
-        <h2>Kursoversikt</h2>
+    <section class="kursoversiktSection">
+        <h2 id="kursoversiktOverskrfit">Kursoversikt</h2>
         <ul id="kursoversiktListe"></ul>
     </section>
 

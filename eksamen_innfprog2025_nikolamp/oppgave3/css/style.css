@@ -5,12 +5,58 @@
 body{
     background-color: #e6ecff;
 }
+
+.visKnapp{
+    margin: 1rem;
+
+}
+
+.stillingFilterKnapp{
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.menyKnapp{
+    padding: 0.5rem;
+    background-color: #ccd9ff;
+    border-color: #2f5be2;
+    margin: 0.2rem;
+}
 #overskrift{
     background-color: #99b3ff;
     padding: 2rem;
     margin: 0;
     color: #ffffff;
     text-align: center;
+}
+
+#skjemaOverskrift{
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+
+#ansatteOverskrift{
+    padding: 1rem;
+}
+
+#personer li{
+    padding: 1rem;
+    list-style: none;
+    background-color: #ffffff;
+}
+
+#personer{
+    max-width: 600px;
+
+}
+
+#kursoversiktOverskrfit{
+    padding: 1rem;
+}
+
+#kursoversiktListe li{
+    padding: 0.5rem;
 }
 
 .leggTilSkjema{
@@ -34,7 +80,17 @@ body{
 
 #btnNyAnsattt{
     padding: 1rem;
-    margin: 0rem 0rem 2rem 4.5rem;
+    margin: 0rem 0rem 2rem 3rem;
     background-color: #ccd9ff;
     border-color: #2f5be2;
+    min-width: 200px;
+}
+
+
+.ansatteOversiktSection{
+    padding: 1rem;
+}
+
+.kursoversiktSection{
+    padding: 1rem 0rem 2rem 1rem;
 }
