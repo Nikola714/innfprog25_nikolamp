@@ -44,16 +44,17 @@ body{
     max-width: 1500px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: 1rem;
+    justify-content: space-evenly;
+    margin: 4rem;
     padding: 5px;
 }
 
 #personer li{
     padding: 0.2rem 1rem 0.2rem 1rem;
     list-style: none;
-    min-width: 400px;
+    min-width: 600px;
     align-content: center;
+    flex-grow: 1;
 
 }
 
