@@ -4,12 +4,12 @@ import { stillinger } from './register.js';
 
 let ansatter = document.getElementById("personer")
 
-//Første funskjon til å indexere og skrive ut informasjon om ansatter
+//Første funskjon til å indexere ansatter
 function ansatteIndex(){
-
-
     //For løkke for å få indexer for hvert ansatt
     for(let index = 0; index < ansatt.length; index++){
+        console.log(index)
+        
         //Andre funksjon lister ut alle ansatte og bruke den første funksjon for å strukturere den html strukturen 
         function ansattListe(){
             ansatter.innerHTML += `
@@ -23,6 +23,7 @@ function ansatteIndex(){
             </li>`
         }
         ansattListe()
+        // console.log(ansatteIndex)
     }
 }
 //kjøre funksjon
@@ -49,6 +50,7 @@ function visStilling(stilling){
 
 //Knappen for alle ansatte
 const btnAlle = document.getElementById("alleAnsatte");
+//#OPPD3. Jeg legget til if-test som sjekker om den variabel med id finnes i html fillen. Siden jeg testet alt i et html filen og i oppgave 3 har jeg to html filer, og jeg fikk error at jeg laget en variabel som tilhører til en id men id finnes ikke i html filles. Det er eneste endring jeg har gjort i forhold til oopgave 3, dvs. jeg laget if tester som sjekker hvis viariabel finnes gjør det og det
 if (btnAlle) {
     btnAlle.addEventListener("click", () => {
         ansatteIndex();
@@ -61,6 +63,7 @@ if (btnAlle) {
 //Knappen for professor
 const btnProfessor = document.getElementById("professor");
 //Sjekker om knappen viness. Hvis ja: Når noen klikker på knappen "Professor"...
+//#OPPD3
 if(btnProfessor){
     btnProfessor.addEventListener("click", () => {
     //... får man liste bare med de ansatte med professor stilling
@@ -70,6 +73,7 @@ if(btnProfessor){
 
 //Knappen for dekan
 const btnDekan = document.getElementById("dekan");
+//#OPPD3
 if(btnDekan){
     btnDekan.addEventListener("click", () => {
         visStilling("Dekan");
@@ -78,6 +82,7 @@ if(btnDekan){
 
 //Knappen for rektor
 const btnRektor = document.getElementById("rektor");
+//#OPPD3
 if(btnRektor){
     btnRektor.addEventListener("click", () => {
         visStilling("Rektor");
@@ -86,6 +91,7 @@ if(btnRektor){
 
 //Knappen for vaktmester
 const btnVaktmester = document.getElementById("vaktmester");
+//#OPPD3
 if(btnVaktmester){
     btnVaktmester.addEventListener("click", () => {
         visStilling("Vaktmester");
@@ -94,6 +100,7 @@ if(btnVaktmester){
 
 //Knappen for lektor
 const btnLektor = document.getElementById("lektor");
+//#OPPD3
 if(btnLektor){
     btnLektor.addEventListener("click", () => {
         visStilling("Lektor");
@@ -103,6 +110,7 @@ if(btnLektor){
 //Fjere funksjon
 function listUTStilling() {
     const kursoversiktListe = document.getElementById("kursoversiktListe");
+    //#OPPD3
     if(kursoversiktListe){
         kursoversiktListe.innerHTML = "";
     
@@ -136,6 +144,7 @@ function underviserne(stilling1, stilling2){
 
 //Knappen for underviserne
 const btnUnderviserne = document.getElementById("underviserne");
+//#OPPD3
 if(btnUnderviserne){
     btnUnderviserne.addEventListener("click", () => {
         underviserne("Professor", "Lektor")
@@ -162,6 +171,7 @@ function administartorene(admin1, admin2, admin3){
 
 //Knappen for administartorene
 const btnAdmin = document.getElementById("administrasjon");
+//#OPPD3
 if(btnAdmin){
     btnAdmin.addEventListener("click", () => {
         administartorene("Rektor", "Dekan", "Vaktmester")
@@ -202,6 +212,7 @@ function nyAnsatt() {
     
 
 const btnNyAnsattt = document.getElementById("btnNyAnsattt")
+//#OPPD3
 if(btnNyAnsattt){
     btnNyAnsattt.addEventListener("click", () => {
         nyAnsatt()
