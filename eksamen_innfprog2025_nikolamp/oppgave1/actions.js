@@ -30,18 +30,20 @@ function ansatteIndex(){
 ansatteIndex()
 
 //Tredje funksjon tar imot en parameter som innsette stilling og filtrere alle ansatte på den innsette parameter, dvs. hvis noen velger dekan i meny kommer kun vare ansatte med stillinger dekan
-
 function visStilling(stilling){
+    //tome ansatter
     ansatter.innerHTML= ""
+    //gå for hvert liste element
     ansatt.forEach(ansatt => {
+        //hvis stilling er "Lektor" for eksempel så hviser hele informaosjon om alle de som inneholder stilling lektor
         if(ansatt.stilling === stilling){
             ansatter.innerHTML += `
                 <li>
-                    ${ansatt.navn}
-                    <strong>Stilling: </strong>${ansatt.stilling}<br>
-                    <strong>Kontor: </strong>${ansatt.kontor}<br>
-                    <strong>E-post: </strong>${ansatt.epost}<br>
-                    ${ansatt.kursansvar}
+                    <li>${ansatt.navn}</li>
+                    <li><strong>Stilling: </strong>${ansatt.stilling}</li>
+                    <li><strong>Kontor: </strong>${ansatt.kontor}</li>
+                    <li><strong>E-post: </strong>${ansatt.epost}</li>
+                    <li>${ansatt.kursansvar}</li>
                     
                 </li>`
         }
@@ -50,7 +52,7 @@ function visStilling(stilling){
 
 //Knappen for alle ansatte
 const btnAlle = document.getElementById("alleAnsatte");
-//#OPPD3. Jeg legget til if-test som sjekker om den variabel med id finnes i html fillen. Siden jeg testet alt i et html filen og i oppgave 3 har jeg to html filer, og jeg fikk error at jeg laget en variabel som tilhører til en id men id finnes ikke i html filles. Det er eneste endring jeg har gjort i forhold til oopgave 3, dvs. jeg laget if tester som sjekker hvis viariabel finnes gjør det og det
+//#OPPD3. Jeg legget til if-test som sjekker den id finnes i html fillen. Siden jeg testet alt i et html filen og i oppgave 3 har jeg to html filer, og jeg fikk error at jeg laget en variabel som tilhører til en id men id finnes ikke i html filles. Det er eneste endring jeg har gjort i forhold til oopgave 3, dvs. jeg laget if tester som sjekker hvis viariabel finnes gjør det og det
 if (btnAlle) {
     btnAlle.addEventListener("click", () => {
         ansatteIndex();
@@ -126,16 +128,18 @@ listUTStilling();
 
 //Femte funksjon
 function underviserne(stilling1, stilling2){
+    //tomme variabel og lage ny utskift
     ansatter.innerHTML= ""
     ansatt.forEach(ansatt => {
         if(ansatt.stilling === stilling1 || ansatt.stilling === stilling2){
+            //ny utskrift skriver ut de som er lektor og underviserne som jeg definerer under avstulte tag for funkjson
             ansatter.innerHTML += `
                 <li>
-                    ${ansatt.navn}
-                    <strong>Stilling: </strong>${ansatt.stilling}<br>
-                    <strong>Kontor: </strong>${ansatt.kontor}<br>
-                    <strong>E-post: </strong>${ansatt.epost}<br>
-                    ${ansatt.kursansvar}
+                    <li>${ansatt.navn}</li>
+                    <li><strong>Stilling: </strong>${ansatt.stilling}</li>
+                    <li><strong>Kontor: </strong>${ansatt.kontor}</li>
+                    <li><strong>E-post: </strong>${ansatt.epost}</li>
+                    <li>${ansatt.kursansvar}</li>
                     
                 </li>`
         }
@@ -153,16 +157,18 @@ if(btnUnderviserne){
 
 //Sjette funskjon
 function administartorene(admin1, admin2, admin3){
+    //tommer utskrift
     ansatter.innerHTML= ""
     ansatt.forEach(ansatt => {
         if(ansatt.stilling === admin1 || ansatt.stilling === admin2 || ansatt.stilling === admin3){
+            //lage ny utskrift med alle personer fra administrasjon dvs. rektor, vaktmester og dekaner
             ansatter.innerHTML += `
                 <li>
-                    ${ansatt.navn}
-                    <strong>Stilling: </strong>${ansatt.stilling}<br>
-                    <strong>Kontor: </strong>${ansatt.kontor}<br>
-                    <strong>E-post: </strong>${ansatt.epost}<br>
-                    ${ansatt.kursansvar}
+                    <li>${ansatt.navn}</li>
+                    <li><strong>Stilling: </strong>${ansatt.stilling}</li>
+                    <li><strong>Kontor: </strong>${ansatt.kontor}</li>
+                    <li><strong>E-post: </strong>${ansatt.epost}</li>
+                    <li>${ansatt.kursansvar}</li>
                     
                 </li>`
         }
@@ -181,29 +187,28 @@ if(btnAdmin){
 
 //Syende funksjon
 function nyAnsatt() {
-
+    //lage variabel som skal ta verdi av det brukeren skrevet
     let fornavn = document.getElementById("fornavn").value;
     let lastname = document.getElementById("etternavn").value;
     let kontor = document.getElementById("kontor").value;
     let epost = document.getElementById("mail").value;
     let kurs = document.getElementById("kurs").value;
-
-    // HENTER KUN VALGT STLLING
     let stilling = document.getElementById("stilling").value;
 
+    //hvis noen har ikke fylt ut noe kommer alert på side
     if (!fornavn || !lastname || !epost || !kontor || !kurs) {
         alert("Vennligst fyll ut alle felt.");
         return;
     }
 
-    //legge ny ansatte i liste
+    //legge ny ansatt
     ansatter.innerHTML += `
         <li>
-            <strong>Navn: </strong>${fornavn} ${lastname} <br>  
-            <strong>Kontor: </strong>${kontor}<br>
-            <strong>E-post: </strong>${epost}<br>
-            <strong>Stilling: </strong>${stilling}<br>
-            <strong>Kursansvar: </strong>${kurs}<br>
+            <li><strong>Navn: </strong>${fornavn} ${lastname} </li>  
+            <li><strong>Kontor: </strong>${kontor}</li>
+            <li><strong>E-post: </strong>${epost}</li>
+            <li><strong>Stilling: </strong>${stilling}</li>
+            <li><strong>Kursansvar: </strong>${kurs}</li>
         </li>`;
 
     
@@ -218,3 +223,49 @@ if(btnNyAnsattt){
         nyAnsatt()
         })
 }
+
+
+//Åttende funskjon 
+//Kode for å løse den oppagve starer harstarter her
+//#OPPD3
+//hvis i html finner ideks med navn "btnSlettAnsatt"
+if(minBtn){
+const btn = document.createElement("button");
+btn.textContent = "Klikk meg";
+
+
+
+
+
+
+    //tom liste
+    ansatter.innerHTML=""
+    ansatt.forEach(ansatt => {
+    //lag ny liste verdi for hvert liste
+    ansatter.innerHTML += `
+        <li>
+            <li>${ansatt.navn}</li>
+            <li><strong>Stilling: </strong>${ansatt.stilling}</li>
+            <li><strong>Kontor: </strong>${ansatt.kontor}</li>
+            <li><strong>E-post: </strong>${ansatt.epost}</li>
+            <li>${ansatt.kursansvar}</li>
+            <li>${btn.outerHTML}</li>
+
+        </li>`
+    })
+}
+
+function deleteButton(){
+    ansatter.innerHTML = `           
+        <li>${ansatt.navn}</li>
+        <li><strong>Stilling: </strong>${ansatt.stilling}</li>
+        <li><strong>Kontor: </strong>${ansatt.kontor}</li>
+        <li><strong>E-post: </strong>${ansatt.epost}</li>
+        <li>${ansatt.kursansvar}</li>
+        <li>${btn.outerHTML}</li>
+        `
+}
+
+btn.outerHTML.addEventListener("click", () => {
+    deleteButton()
+    })
