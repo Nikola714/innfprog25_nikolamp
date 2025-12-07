@@ -40,15 +40,30 @@ body{
     padding: 1rem;
 }
 
-#personer li{
-    padding: 1rem;
-    list-style: none;
-    background-color: #ffffff;
+#personer{
+    max-width: 1500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem;
+    padding: 5px;
 }
 
-#personer{
-    max-width: 600px;
+#personer li{
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    list-style: none;
+    min-width: 400px;
+    align-content: center;
 
+}
+
+
+#personer li li{
+    display: flex;
+    background-color: #ffffff;
+    max-width: 300px;
+    min-height: 50px;
+    flex-wrap: wrap;
 }
 
 #kursoversiktOverskrfit{

@@ -14,11 +14,11 @@ function ansatteIndex(){
         function ansattListe(){
             ansatter.innerHTML += `
             <li>
-                ${ansatt[index].navn}
-                <strong>Stilling: </strong>${ansatt[index].stilling}<br>
-                <strong>Kontor: </strong>${ansatt[index].kontor}<br>
-                <strong>E-post: </strong>${ansatt[index].epost}<br>
-                ${ansatt[index].kursansvar}
+                <li>${ansatt[index].navn}</li>
+                <li><strong>Stilling: </strong>${ansatt[index].stilling}</li>
+                <li><strong>Kontor: </strong>${ansatt[index].kontor}</li>
+                <li><strong>E-post: </strong>${ansatt[index].epost}</li>
+                <li>${ansatt[index].kursansvar}</li>
                 
             </li>`
         }
