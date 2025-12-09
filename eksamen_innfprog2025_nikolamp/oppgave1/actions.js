@@ -229,43 +229,36 @@ if(btnNyAnsattt){
 //Kode for å løse den oppagve starer harstarter her
 //#OPPD3
 //hvis i html finner ideks med navn "btnSlettAnsatt"
-if(minBtn){
-const btn = document.createElement("button");
-btn.textContent = "Klikk meg";
 
+if(btnNyAnsattt){
+function slettAnsatt() {
+    ansatter.innerHTML = ""; // tømming før vi legger inn ny liste
 
+    ansatt.forEach(a => {
+        const li = document.createElement("li");
 
+        li.innerHTML = `
+            <li>${a.navn}</li>
+            <li><strong>Stilling:</strong> ${a.stilling}</li>
+            <li><strong>Kontor:</strong> ${a.kontor}</li>
+            <li><strong>E-post:</strong> ${a.epost}</li>
+            <li>${a.kursansvar}</li>
+        `;
 
+        // Lag knapp for hvert element
+        const sletteBtn = document.createElement("button");
+        sletteBtn.textContent = "Slett ansatt";
 
+        // Event listener på hver knapp
+        sletteBtn.addEventListener("click", () => {
+            li.remove(); // fjerner bare denne listen
+        });
 
-    //tom liste
-    ansatter.innerHTML=""
-    ansatt.forEach(ansatt => {
-    //lag ny liste verdi for hvert liste
-    ansatter.innerHTML += `
-        <li>
-            <li>${ansatt.navn}</li>
-            <li><strong>Stilling: </strong>${ansatt.stilling}</li>
-            <li><strong>Kontor: </strong>${ansatt.kontor}</li>
-            <li><strong>E-post: </strong>${ansatt.epost}</li>
-            <li>${ansatt.kursansvar}</li>
-            <li>${btn.outerHTML}</li>
-
-        </li>`
-    })
+        //legge til ny elemnt på slutten av hvert ansatt liste
+        li.appendChild(sletteBtn);
+        ansatter.appendChild(li);
+    });
 }
 
-function deleteButton(){
-    ansatter.innerHTML = `           
-        <li>${ansatt.navn}</li>
-        <li><strong>Stilling: </strong>${ansatt.stilling}</li>
-        <li><strong>Kontor: </strong>${ansatt.kontor}</li>
-        <li><strong>E-post: </strong>${ansatt.epost}</li>
-        <li>${ansatt.kursansvar}</li>
-        <li>${btn.outerHTML}</li>
-        `
+slettAnsatt(); // kall funksjonen for å vise listen
 }
-
-btn.outerHTML.addEventListener("click", () => {
-    deleteButton()
-    })

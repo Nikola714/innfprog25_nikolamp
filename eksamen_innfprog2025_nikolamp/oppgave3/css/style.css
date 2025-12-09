@@ -110,3 +110,12 @@ body{
 .kursoversiktSection{
     padding: 1rem 0rem 2rem 1rem;
 }
+
+ul li button{
+    background-color: #d30a0a;
+    color: #ffffff;
+    padding: 1rem;
+    margin-bottom: 5rem;
+    width: 150px;
+    margin-top: 1rem;
+}
