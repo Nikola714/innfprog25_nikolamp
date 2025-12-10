@@ -1,4 +1,4 @@
-        export const stillinger = ["Professor", "Dekan", "Rektor", "Vaktmester", "Lektor"]
+        const stillinger = ["Professor", "Dekan", "Rektor", "Vaktmester", "Lektor"]
         export const ansatt = [
     //1 rektor
     {
