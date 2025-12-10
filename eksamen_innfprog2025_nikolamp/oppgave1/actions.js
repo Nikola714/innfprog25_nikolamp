@@ -105,7 +105,7 @@ if(btnLektor){
     });
 }
 
-//Fjere funksjon
+//Fjere funksjon for å liste ut alle stillinger
 function listUTStilling() {
     const kursoversiktListe = document.getElementById("kursoversiktListe");
     //#OPPD3
@@ -123,7 +123,7 @@ function listUTStilling() {
 listUTStilling();
 
 
-//Femte funksjon
+//Femte funksjon for underviserne
 function underviserne(stilling1, stilling2){
     //tomme variabel og lage ny utskift
     ansatter.innerHTML= ""
@@ -152,7 +152,7 @@ if(btnUnderviserne){
     });
 }
 
-//Sjette funskjon
+//Sjette funskjon for å få bare de som jobber i administrasjon
 function administartorene(admin1, admin2, admin3){
     ansatter.innerHTML= ""
     ansatt.forEach(ansatt => {
@@ -181,56 +181,70 @@ if(btnAdmin){
 }
 
 
-//Syende funksjon
+//Syende funksjon for å lege ny ansatt
 function nyAnsatt() {
-    let fornavn = document.getElementById("fornavn").value;
-    let lastname = document.getElementById("etternavn").value;
-    let kontor = document.getElementById("kontor").value;
-    let epost = document.getElementById("mail").value;
-    let kurs = document.getElementById("kurs").value;
-    let stilling = document.getElementById("stilling").value;
+    const fornavn = document.getElementById("fornavn").value;
+    const etternavn = document.getElementById("etternavn").value;
+    const kontor = document.getElementById("kontor").value;
+    const epost = document.getElementById("mail").value;
+    const kurs = document.getElementById("kurs").value;
+    const stilling = document.getElementById("stilling").value;
 
-    if (!fornavn || !lastname || !epost || !kontor || !kurs) {
+    if (!fornavn || !etternavn || !epost || !kontor || !kurs) {
         alert("Vennligst fyll ut alle felt.");
         return;
     }
 
-    ansatter.innerHTML += `
-        <li>
-            <li><strong>Navn: </strong>${fornavn} ${lastname} </li>  
-            <li><strong>Kontor: </strong>${kontor}</li>
-            <li><strong>E-post: </strong>${epost}</li>
-            <li><strong>Stilling: </strong>${stilling}</li>
-            <li><strong>Kursansvar: </strong>${kurs}</li>
-        </li>`;
+    const li = document.createElement("li");
+    li.innerHTML = `
+        <li><strong>Navn:</strong> ${fornavn} ${etternavn} </li>
+        <li><strong>Stilling:</strong> ${stilling} </li>
+        <li><strong>Kontor:</strong> ${kontor} </li>
+        <li><strong>E-post:</strong> ${epost} </li>
+        <li><strong>Kursansvar:</strong> ${kurs} </li>
+    `;
 
-    
+    // Lag slett-knapp
+    const sletteBtn = document.createElement("button");
+    sletteBtn.textContent = "Slett ansatt";
+    sletteBtn.addEventListener("click", () => {
+        li.remove(); // Fjerner denne ansatte fra listen
+    });
+
+    ansatter.appendChild(li);
+    li.appendChild(sletteBtn);
+
+    /////KI ga meg den muligheter til å tome input  feltene etter man velgte knappen for å legge til ny asnatt
+    document.getElementById("fornavn").value = "";
+    document.getElementById("etternavn").value = "";
+    document.getElementById("kontor").value = "";
+    document.getElementById("mail").value = "";
+    document.getElementById("kurs").value = "";
+    document.getElementById("stilling").value = "";
 }
 
-    
-
-const btnNyAnsattt = document.getElementById("btnNyAnsattt")
+// Event listener for knappen
+const btnNyAnsatt = document.getElementById("btnNyAnsattt");
 //#OPPD3
-if(btnNyAnsattt){
-    btnNyAnsattt.addEventListener("click", () => {
-        nyAnsatt()
-        })
+if (btnNyAnsatt) {
+    btnNyAnsatt.addEventListener("click", nyAnsatt);
 }
 
 
-//Åttende funskjon 
-//#OPPD3
+
+
+//Åttende funskjon for å slette
 //hvis i html finner ideks med navn "btnSlettAnsatt"
+if (btnNyAnsatt){
 
-if(btnNyAnsattt){
     /////KI ga meg kode for å slette spesielt person, jeg prøvde gjøre det selv med det funket ikke
 function slettAnsatt() {
     ansatter.innerHTML = ""; 
 
     ansatt.forEach(a => {
-        const li = document.createElement("li");
+        const etasantt = document.createElement("li");
 
-        li.innerHTML = `
+        etasantt.innerHTML = `
             <li>${a.navn}</li>
             <li><strong>Stilling:</strong> ${a.stilling}</li>
             <li><strong>Kontor:</strong> ${a.kontor}</li>
@@ -242,11 +256,11 @@ function slettAnsatt() {
         sletteBtn.textContent = "Slett ansatt";
 
         sletteBtn.addEventListener("click", () => {
-            li.remove(); 
+            etasantt.remove(); 
         });
 
-        ansatter.appendChild(li);
-        li.appendChild(sletteBtn);
+        ansatter.appendChild(etasantt);
+        etasantt.appendChild(sletteBtn);
     });
 }
 
